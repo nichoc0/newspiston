@@ -5,8 +5,7 @@ services:
     build: .
     ports:
       - "8080:80"
-    volumes:
-      - ./content:/usr/share/nginx/html/content:ro
+    # Volume removed - content baked into image via Dockerfile COPY
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost/"]
