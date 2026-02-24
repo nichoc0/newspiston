@@ -11,35 +11,35 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy files
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "index.html,styles.css,app.js,content"
-          target: /opt/newspiston
-          overwrite: true
-
-      - name: Start simple HTTP server
+      - name: Deploy to server
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Kill any existing server
-            pkill -f "python.*http.server" || true
-            
-            # Verify files
-            ls -la /opt/newspiston/
-            ls -la /opt/newspiston/content/
-            
-            # Start Python HTTP server on port 8080
+            sudo mkdir -p /opt/newspiston
+            sudo chown -R opc:opc /opt/newspiston
+
+      - name: Copy files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "index.html,styles.css,app.js,content/,Dockerfile,docker-compose.yml"
+          target: /opt/newspiston
+          overwrite: true
+
+      - name: Build and run
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
             cd /opt/newspiston
-            nohup python3 -m http.server 8080 > /tmp/server.log 2>&1 &
-            sleep 2
-            
-            # Test
-            curl -s http://localhost:8080/content/2026-02-24.json | head -3
-            echo "Server started on port 8080"
+            sudo docker compose down 2>/dev/null || true
+            sudo docker compose up -d --build
+            sleep 5
+            sudo docker compose ps
