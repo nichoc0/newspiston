@@ -4,133 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewsPiston — Piston Solutions Intelligence</title>
-    <link rel="stylesheet" href="styles.css?v=20260224">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="terminal-header">
+    <header class="header">
         <div class="container">
             <div class="brand">
-                <span class="prompt">$</span>
-                <span class="brand-name">newspiston</span>
-                <span class="version">v2.0.0</span>
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#22c55e"/>
+                        <path d="M8 16h16M16 8v16" stroke="#0a0a0f" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">NewsPiston</span>
+                    <span class="brand-tagline">Intelligence Digest</span>
+                </div>
             </div>
             <div class="meta">
-                <span id="timestamp" class="timestamp">--:--:-- UTC</span>
-                <span class="status-indicator">
+                <span id="timestamp" class="timestamp">--:-- UTC</span>
+                <span class="status-badge">
                     <span class="status-dot"></span>
-                    LIVE
+                    Live
                 </span>
             </div>
         </div>
     </header>
 
-    <nav class="section-nav">
+    <nav class="nav">
         <div class="container">
-            <a href="#today" class="nav-link active">TODAY</a>
-            <a href="#tech" class="nav-link">TECH</a>
-            <a href="#events" class="nav-link">EVENTS</a>
-            <a href="#business" class="nav-link">BUSINESS</a>
-            <a href="#research" class="nav-link">MTL RESEARCH</a>
-            <a href="#archive" class="nav-link">ARCHIVE</a>
+            <a href="#today" class="nav-link active" data-section="today">Today</a>
+            <a href="#tech" class="nav-link" data-section="tech">Tech</a>
+            <a href="#events" class="nav-link" data-section="events">Events</a>
+            <a href="#business" class="nav-link" data-section="business">Business</a>
+            <a href="#research" class="nav-link" data-section="research">Research</a>
         </div>
     </nav>
 
-    <main class="container">
-        <section id="today" class="today-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">●</span>
-                    TODAY'S DIGEST
-                </h2>
-                <span class="date-badge" id="today-date">YYYY-MM-DD</span>
-            </div>
-            <div class="digest-summary" id="digest-summary">
-                <p class="executive-summary">Loading today's intelligence...</p>
-            </div>
-            <div class="highlights-grid" id="highlights-grid">
-                <!-- Populated by JS -->
-            </div>
-        </section>
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section id="today" class="hero-section">
+                <div class="hero-header">
+                    <div class="hero-title-group">
+                        <span class="section-label">Daily Briefing</span>
+                        <h1 class="hero-title">Today's Intelligence</h1>
+                        <span class="hero-date" id="hero-date">February 24, 2026</span>
+                    </div>
+                    <div class="hero-stats" id="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-highlights">0</span>
+                            <span class="stat-label">Highlights</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-items">0</span>
+                            <span class="stat-label">Items</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card" id="summary-card">
+                    <div class="summary-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <p class="summary-text" id="summary-text">Loading today's briefing...</p>
+                </div>
 
-        <section id="tech" class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">◆</span>
-                    1. TECH & RESEARCH — "What Changed Today"
-                </h2>
-                <span class="count-badge" id="tech-count">0</span>
-            </div>
-            <p class="section-description">New models, tools, frameworks, breakthrough papers</p>
-            <div class="item-list" id="tech-list">
-                <!-- Populated by JS -->
-            </div>
-        </section>
+                <div class="highlights-grid" id="highlights-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
 
-        <section id="events" class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">▲</span>
-                    2. EVENTS — "Where to Be"
-                </h2>
-                <span class="count-badge" id="events-count">0</span>
-            </div>
-            <p class="section-description">Conferences, deadlines, meetups, calls for papers</p>
-            <div class="item-list" id="events-list"></div>
-        </section>
+            <!-- Tech Section -->
+            <section id="tech" class="content-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon-wrap tech">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="section-title">Tech & Research</h2>
+                            <p class="section-subtitle">New models, tools, frameworks, breakthrough papers</p>
+                        </div>
+                    </div>
+                    <span class="count-badge" id="tech-count">0</span>
+                </div>
+                <div class="items-list" id="tech-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
 
-        <section id="business" class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">$</span>
-                    3. BUSINESS OPPORTUNITIES — "Who's Buying"
-                </h2>
-                <span class="count-badge" id="business-count">0</span>
-            </div>
-            <p class="section-description">$50K+ contract signals only. Quality > quantity.</p>
-            <div class="item-list" id="business-list"></div>
-        </section>
+            <!-- Events Section -->
+            <section id="events" class="content-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon-wrap events">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="section-title">Events</h2>
+                            <p class="section-subtitle">Conferences, deadlines, meetups, calls for papers</p>
+                        </div>
+                    </div>
+                    <span class="count-badge" id="events-count">0</span>
+                </div>
+                <div class="items-list" id="events-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
 
-        <section id="research" class="content-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">⚔</span>
-                    4. RESEARCH OPPORTUNITIES (MTL) — "Who to Know"
-                </h2>
-                <span class="count-badge" id="research-count">0</span>
-            </div>
-            <p class="section-description">Professors, labs, grants, student pipeline</p>
-            <div class="item-list" id="research-list"></div>
-        </section>
+            <!-- Business Section -->
+            <section id="business" class="content-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon-wrap business">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="section-title">Business Opportunities</h2>
+                            <p class="section-subtitle">$50K+ contract signals only. Quality over quantity.</p>
+                        </div>
+                    </div>
+                    <span class="count-badge" id="business-count">0</span>
+                </div>
+                <div class="items-list" id="business-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
 
-        <section id="archive" class="content-section archive-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">◐</span>
-                    ARCHIVE
-                </h2>
-            </div>
-            <div class="archive-grid" id="archive-grid"></div>
-        </section>
+            <!-- Research Section -->
+            <section id="research" class="content-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon-wrap research">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="section-title">Montreal Research</h2>
+                            <p class="section-subtitle">Professors, labs, grants, student pipeline</p>
+                        </div>
+                    </div>
+                    <span class="count-badge" id="research-count">0</span>
+                </div>
+                <div class="items-list" id="research-list">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer class="terminal-footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-left">
-                <span class="footer-brand">PistonSolutions</span>
-                <span class="footer-sep">|</span>
-                <span class="footer-text">Autonomous Intelligence Ops</span>
-            </div>
-            <div class="footer-right">
-                <span class="footer-text">Built by Sera</span>
-                <span class="footer-sep">|</span>
-                <span class="footer-text" id="footer-time">--:--</span>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">PistonSolutions</span>
+                    <span class="footer-divider">|</span>
+                    <span class="footer-tagline">Autonomous Intelligence</span>
+                </div>
+                <div class="footer-meta">
+                    <span>Built by Sera</span>
+                    <span class="footer-divider">|</span>
+                    <span id="footer-time">--:--</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="app.js?v=20260224"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>
