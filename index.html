@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsPiston — Piston Solutions Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="container">
+            <div class="brand">
+                <span class="prompt">$</span>
+                <span class="brand-name">newspiston</span>
+                <span class="version">v1.0.0</span>
+            </div>
+            <div class="meta">
+                <span id="timestamp" class="timestamp">--:--:-- UTC</span>
+                <span class="status-indicator">
+                    <span class="status-dot"></span>
+                    LIVE
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <div class="container">
+            <a href="#today" class="nav-link active">TODAY</a>
+            <a href="#arxiv" class="nav-link">ARXIV</a>
+            <a href="#launches" class="nav-link">LAUNCHES</a>
+            <a href="#procurement" class="nav-link">RFPs</a>
+            <a href="#competitors" class="nav-link">COMPETITORS</a>
+            <a href="#academic" class="nav-link">ACADEMIC</a>
+            <a href="#industry" class="nav-link">INDUSTRY</a>
+            <a href="#archive" class="nav-link">ARCHIVE</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="today" class="today-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">●</span>
+                    TODAY'S DIGEST
+                </h2>
+                <span class="date-badge" id="today-date">YYYY-MM-DD</span>
+            </div>
+            <div class="digest-summary" id="digest-summary">
+                <p class="executive-summary">Loading today's intelligence...</p>
+            </div>
+            <div class="highlights-grid" id="highlights-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section id="arxiv" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">◆</span>
+                    ARXIV / RESEARCH
+                </h2>
+                <span class="count-badge" id="arxiv-count">0</span>
+            </div>
+            <div class="item-list" id="arxiv-list">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section id="launches" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">▲</span>
+                    MODEL & TOOL LAUNCHES
+                </h2>
+                <span class="count-badge" id="launches-count">0</span>
+            </div>
+            <div class="item-list" id="launches-list"></div>
+        </section>
+
+        <section id="procurement" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">$</span>
+                    PROCUREMENT / RFPs
+                </h2>
+                <span class="count-badge" id="procurement-count">0</span>
+            </div>
+            <div class="item-list" id="procurement-list"></div>
+        </section>
+
+        <section id="competitors" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">⚔</span>
+                    COMPETITOR INTEL
+                </h2>
+                <span class="count-badge" id="competitors-count">0</span>
+            </div>
+            <div class="item-list" id="competitors-list"></div>
+        </section>
+
+        <section id="academic" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">◈</span>
+                    UNIVERSITY / ACADEMIC
+                </h2>
+                <span class="count-badge" id="academic-count">0</span>
+            </div>
+            <div class="item-list" id="academic-list"></div>
+        </section>
+
+        <section id="industry" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">■</span>
+                    INDUSTRY NEWS
+                </h2>
+                <span class="count-badge" id="industry-count">0</span>
+            </div>
+            <div class="item-list" id="industry-list"></div>
+        </section>
+
+        <section id="archive" class="content-section archive-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">◐</span>
+                    ARCHIVE
+                </h2>
+            </div>
+            <div class="archive-grid" id="archive-grid"></div>
+        </section>
+    </main>
+
+    <footer class="terminal-footer">
+        <div class="container">
+            <div class="footer-left">
+                <span class="footer-brand">PistonSolutions</span>
+                <span class="footer-sep">|</span>
+                <span class="footer-text">Autonomous Intelligence Ops</span>
+            </div>
+            <div class="footer-right">
+                <span class="footer-text">Built by Sera</span>
+                <span class="footer-sep">|</span>
+                <span class="footer-text" id="footer-time">--:--</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
