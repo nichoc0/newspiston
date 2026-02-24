@@ -8,21 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            sudo mkdir -p /opt/newspiston
-            sudo chown -R opc:opc /opt/newspiston
-
-      - name: Copy files
-        uses: appleboy/scp-action@v0.1.7
+      - uses: actions/checkout@v4
+      
+      - uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
@@ -31,15 +19,10 @@ jobs:
           target: /opt/newspiston
           overwrite: true
 
-      - name: Build and run
-        uses: appleboy/ssh-action@v1
+      - uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /opt/newspiston
-            sudo docker compose down 2>/dev/null || true
-            sudo docker compose up -d --build
-            sleep 5
-            sudo docker compose ps
+            cd /opt/newspiston && sudo docker compose down && sudo docker compose up -d --build
