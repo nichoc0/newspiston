@@ -1,0 +1,34 @@
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/*.tfplan
+.terraform.lock.hcl
+
+# Secrets
+*.pem
+*.key
+.env
+secrets/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if we add later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Content (auto-generated, but we want to track sample)
+content/*.json
+!content/sample.json
+!content/archive.json

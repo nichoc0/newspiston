@@ -1,0 +1,68 @@
+#cloud-config
+package_update: true
+
+packages:
+  - docker.io
+  - nginx
+  - git
+  - fail2ban
+
+runcmd:
+  # Enable and start Docker
+  - systemctl enable docker
+  - systemctl start docker
+  
+  # Create app directory
+  - mkdir -p /opt/newspiston
+  - mkdir -p /opt/newspiston/content
+  
+  # Pull and run the container
+  - docker pull ghcr.io/nichoc0/newspiston:latest || true
+  
+  # Setup nginx reverse proxy
+  - |
+    cat > /etc/nginx/sites-available/newspiston << 'EOF'
+    server {
+        listen 80;
+        server_name _;
+        
+        location / {
+            proxy_pass http://localhost:8080;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+    EOF
+  
+  - ln -sf /etc/nginx/sites-available/newspiston /etc/nginx/sites-enabled/
+  - rm -f /etc/nginx/sites-enabled/default
+  - systemctl reload nginx
+  
+  # Setup firewall
+  - ufw allow OpenSSH
+  - ufw allow 'Nginx Full'
+  - ufw --force enable
+  
+  # Create deploy script
+  - |
+    cat > /opt/newspiston/deploy.sh << 'EOF'
+    #!/bin/bash
+    set -e
+    cd /opt/newspiston
+    docker pull ghcr.io/nichoc0/newspiston:latest
+    docker stop newspiston || true
+    docker rm newspiston || true
+    docker run -d \
+      --name newspiston \
+      --restart unless-stopped \
+      -p 8080:80 \
+      -v /opt/newspiston/content:/usr/share/nginx/html/content:ro \
+      ghcr.io/nichoc0/newspiston:latest
+    echo "Deployed at $(date)"
+    EOF
+  
+  - chmod +x /opt/newspiston/deploy.sh
+  
+  # Setup content sync from GitHub Actions
+  - chown -R ubuntu:ubuntu /opt/newspiston

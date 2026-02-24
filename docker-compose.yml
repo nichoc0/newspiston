@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  newspiston:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./content:/usr/share/nginx/html/content:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
