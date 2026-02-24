@@ -18,74 +18,28 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "index.html,styles.css,app.js,content"
-          target: /tmp/newspiston
+          target: /opt/newspiston
           overwrite: true
 
-      - name: Configure nginx and deploy
+      - name: Start simple HTTP server
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Install nginx
-            sudo dnf install -y nginx || true
+            # Kill any existing server
+            pkill -f "python.*http.server" || true
             
-            # Deploy files
-            sudo mkdir -p /usr/share/nginx/html
-            sudo rm -rf /usr/share/nginx/html/*
-            sudo cp -r /tmp/newspiston/* /usr/share/nginx/html/
-            sudo chown -R nginx:nginx /usr/share/nginx/html
+            # Verify files
+            ls -la /opt/newspiston/
+            ls -la /opt/newspiston/content/
             
-            # Simple nginx config
-            sudo tee /etc/nginx/nginx.conf > /dev/null << 'EOF'
-            user nginx;
-            worker_processes auto;
-            error_log /var/log/nginx/error.log;
-            pid /run/nginx.pid;
+            # Start Python HTTP server on port 8080
+            cd /opt/newspiston
+            nohup python3 -m http.server 8080 > /tmp/server.log 2>&1 &
+            sleep 2
             
-            events {
-                worker_connections 1024;
-            }
-            
-            http {
-                log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                                  '$status $body_bytes_sent "$http_referer" '
-                                  '"$http_user_agent" "$http_x_forwarded_for"';
-                
-                access_log  /var/log/nginx/access.log  main;
-                
-                sendfile            on;
-                tcp_nopush          on;
-                tcp_nodelay         on;
-                keepalive_timeout   65;
-                types_hash_max_size 2048;
-                
-                include             /etc/nginx/mime.types;
-                default_type        application/octet-stream;
-                
-                server {
-                    listen       80 default_server;
-                    listen       [::]:80 default_server;
-                    server_name  _;
-                    root         /usr/share/nginx/html;
-                    index        index.html;
-                    
-                    location / {
-                        try_files $uri $uri/ =404;
-                    }
-                    
-                    location /content/ {
-                        add_header Cache-Control "no-cache";
-                    }
-                }
-            }
-            EOF
-            
-            # Start nginx
-            sudo systemctl enable nginx
-            sudo systemctl restart nginx
-            
-            # Verify
-            ls -la /usr/share/nginx/html/content/
-            curl -s http://localhost/content/2026-02-24.json | head -3
+            # Test
+            curl -s http://localhost:8080/content/2026-02-24.json | head -3
+            echo "Server started on port 8080"
