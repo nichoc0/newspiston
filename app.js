@@ -37,7 +37,10 @@ async function loadTodayDigest() {
     document.getElementById('today-date').textContent = today;
     
     try {
-        const response = await fetch(`${API_BASE}/${today}.json`);
+        const cacheBuster = new Date().getTime();
+        const response = await fetch(`${API_BASE}/${today}.json?v=${cacheBuster}`, {
+            cache: 'no-store'
+        });
         if (!response.ok) throw new Error('No digest for today');
         
         currentDigest = await response.json();
