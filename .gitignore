@@ -9,6 +9,7 @@ terraform/*.tfplan
 # Secrets
 *.pem
 *.key
+*.key.pub
 .env
 secrets/
 

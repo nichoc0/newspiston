@@ -1,0 +1,53 @@
+name: Deploy to Oracle Cloud
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy files and deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Create app directory if it doesn't exist
+            sudo mkdir -p /opt/newspiston
+            cd /opt/newspiston
+
+            # Install docker & docker-compose if not present
+            if ! command -v docker &> /dev/null; then
+              sudo dnf install -y dnf-utils
+              sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+              sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+              sudo systemctl enable --now docker
+              sudo usermod -aG docker opc
+            fi
+
+      - name: Copy project files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "index.html,styles.css,app.js,content/,Dockerfile,docker-compose.yml"
+          target: /opt/newspiston
+          overwrite: true
+
+      - name: Build and restart containers
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/newspiston
+            sudo docker compose down || true
+            sudo docker compose up -d --build
