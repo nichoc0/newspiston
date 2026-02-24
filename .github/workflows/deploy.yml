@@ -11,47 +11,52 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to server
+      - name: Package and deploy
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Stop any existing containers
-            cd /opt/newspiston 2>/dev/null && sudo docker compose down 2>/dev/null || true
-            
-            # Create directory
-            sudo mkdir -p /opt/newspiston
-            sudo chown -R opc:opc /opt/newspiston
-            
             # Install nginx if not present
             if ! command -v nginx &> /dev/null; then
               sudo dnf install -y nginx
               sudo systemctl enable nginx
             fi
+            
+            # Create temp directory
+            sudo mkdir -p /tmp/newspiston-deploy
+            sudo rm -rf /tmp/newspiston-deploy/*
 
-      - name: Copy files to server
+      - name: Copy files via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "index.html,styles.css,app.js,content/"
-          target: /opt/newspiston
+          source: "index.html,styles.css,app.js,content"
+          target: /tmp/newspiston-deploy
           overwrite: true
-          strip_components: 0
 
-      - name: Configure and restart nginx
+      - name: Deploy to nginx
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Copy files to nginx directory
-            sudo cp -r /opt/newspiston/* /usr/share/nginx/html/
+            echo "=== Source files ==="
+            ls -la /tmp/newspiston-deploy/
+            ls -la /tmp/newspiston-deploy/content/
+            
+            # Clean and copy to nginx
+            sudo rm -rf /usr/share/nginx/html/*
+            sudo cp -r /tmp/newspiston-deploy/* /usr/share/nginx/html/
             sudo chown -R nginx:nginx /usr/share/nginx/html
+            
+            echo "=== Deployed files ==="
+            ls -la /usr/share/nginx/html/
+            ls -la /usr/share/nginx/html/content/
             
             # Configure nginx
             sudo tee /etc/nginx/conf.d/default.conf > /dev/null << 'EOF'
@@ -62,31 +67,19 @@ jobs:
                 index index.html;
                 
                 location / {
-                    try_files $uri $uri/ /index.html;
+                    try_files $uri $uri/ =404;
                 }
                 
                 location /content/ {
                     add_header Cache-Control "no-cache, no-store, must-revalidate";
-                    add_header Pragma "no-cache";
-                    add_header Expires "0";
                 }
                 
                 gzip on;
-                gzip_types text/plain text/css application/json application/javascript;
+                gzip_types text/css application/json application/javascript;
             }
             EOF
             
-            # Test and restart
             sudo nginx -t && sudo systemctl restart nginx
             
-            # Verify - CRITICAL DEBUG
-            echo "=== DEBUG: Checking source files ==="
-            ls -la /opt/newspiston/
-            ls -la /opt/newspiston/content/ 2>/dev/null || echo "NO CONTENT DIRECTORY IN SOURCE"
-            
-            echo "=== DEBUG: Checking deployed files ==="
-            ls -la /usr/share/nginx/html/
-            ls -la /usr/share/nginx/html/content/ 2>/dev/null || echo "NO CONTENT DIRECTORY IN NGINX"
-            
-            echo "=== DEBUG: Testing content endpoint ==="
-            curl -v http://localhost/content/2026-02-24.json 2>&1 | tail -20
+            echo "=== Testing ==="
+            curl -s http://localhost/content/2026-02-24.json | head -3
