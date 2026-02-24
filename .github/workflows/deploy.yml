@@ -79,7 +79,14 @@ jobs:
             # Test and restart
             sudo nginx -t && sudo systemctl restart nginx
             
-            # Verify
-            echo "=== Verifying deployment ==="
-            ls -la /usr/share/nginx/html/content/
-            curl -s http://localhost/content/2026-02-24.json | head -5
+            # Verify - CRITICAL DEBUG
+            echo "=== DEBUG: Checking source files ==="
+            ls -la /opt/newspiston/
+            ls -la /opt/newspiston/content/ 2>/dev/null || echo "NO CONTENT DIRECTORY IN SOURCE"
+            
+            echo "=== DEBUG: Checking deployed files ==="
+            ls -la /usr/share/nginx/html/
+            ls -la /usr/share/nginx/html/content/ 2>/dev/null || echo "NO CONTENT DIRECTORY IN NGINX"
+            
+            echo "=== DEBUG: Testing content endpoint ==="
+            curl -v http://localhost/content/2026-02-24.json 2>&1 | tail -20
