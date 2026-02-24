@@ -139,6 +139,39 @@ body::before {
     gap: 16px;
 }
 
+.archive-dropdown {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 13px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.archive-dropdown:hover {
+    border-color: var(--border-strong);
+}
+
+.archive-dropdown:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+/* Event Details */
+.event-details {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    margin: 12px 0;
+}
+
+.event-details strong {
+    color: var(--text-primary);
+}
+
 .timestamp {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;

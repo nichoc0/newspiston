@@ -65,33 +65,42 @@ function updateHeroStats() {
     if (statItems) statItems.textContent = totalItems;
 }
 
-// Load today's digest
-async function loadTodayDigest() {
-    const today = new Date().toISOString().split('T')[0];
-    
+// Load specific date digest
+async function loadDigest(date) {
     try {
         const cacheBuster = new Date().getTime();
-        const response = await fetch(`${API_BASE}/${today}.json?v=${cacheBuster}`, {
+        const response = await fetch(`${API_BASE}/${date}.json?v=${cacheBuster}`, {
             cache: 'no-store'
         });
         
         if (!response.ok) {
-            // Try sample.json as fallback
-            const sampleResponse = await fetch(`${API_BASE}/sample.json?v=${cacheBuster}`);
-            if (sampleResponse.ok) {
-                currentDigest = await sampleResponse.json();
-                renderDigest(currentDigest);
-                return;
-            }
-            throw new Error('No digest available');
+            throw new Error('No digest available for ' + date);
         }
         
         currentDigest = await response.json();
         renderDigest(currentDigest);
+        
+        // Update hero date
+        const heroDateEl = document.getElementById('hero-date');
+        if (heroDateEl) {
+            const dateObj = new Date(date);
+            heroDateEl.textContent = dateObj.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
     } catch (error) {
         console.error('Failed to load digest:', error);
         renderEmptyState();
     }
+}
+
+// Load today's digest
+async function loadTodayDigest() {
+    const today = new Date().toISOString().split('T')[0];
+    await loadDigest(today);
 }
 
 // Render digest
@@ -223,15 +232,15 @@ function renderTechSection(items) {
 function renderEventsSection(items) {
     const listEl = document.getElementById('events-list');
     const countEl = document.getElementById('events-count');
-    
+
     if (countEl) countEl.textContent = items.length;
     if (!listEl) return;
-    
+
     if (items.length === 0) {
         listEl.innerHTML = renderEmptyStateHTML('No events today.');
         return;
     }
-    
+
     listEl.innerHTML = items.map((item, index) => `
         <div class="item-card" style="animation-delay: ${index * 0.05}s">
             <div class="item-header">
@@ -239,20 +248,33 @@ function renderEventsSection(items) {
                 <span class="item-priority ${item.priority || 'medium'}">${item.priority || 'medium'}</span>
             </div>
             <p class="item-description">${item.summary}</p>
-            <div class="item-meta">
-                <span class="item-source">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    ${item.source || 'Unknown'}
-                </span>
-                ${item.date ? `<span class="item-date">${item.date}</span>` : ''}
-                ${item.relevance ? `<span class="item-tag">→ ${item.relevance}</span>` : ''}
-                ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">View Details</a>` : ''}
+            
+            <!-- Event Details -->
+            <div class="event-details" style="background: var(--bg-tertiary); border-radius: var(--radius-sm); padding: 12px; margin: 12px 0;">
+                ${item.location ? `<div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 6px;">
+                    <strong>📍 Location:</strong> ${item.location}
+                </div>` : ''}
+                ${item.cost ? `<div style="font-size: 13px; color: var(--accent-primary); margin-bottom: 6px;">
+                    <strong>💰 Cost:</strong> ${item.cost}
+                </div>` : ''}
+                ${item.decision_deadline ? `<div style="font-size: 13px; color: var(--events); margin-bottom: 6px;">
+                    <strong>⏰ Decision By:</strong> ${item.decision_deadline}
+                </div>` : ''}
+                ${item.source ? `<div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+                    <strong>Source:</strong> <a href="${item.source}" target="_blank" rel="noopener" style="color: var(--tech);">${item.source}</a>
+                </div>` : ''}
             </div>
+            
+            <div class="item-meta" style="flex-wrap: wrap; gap: 8px;">
+                ${item.date ? `<span class="item-date">${item.date}${item.time ? ' @ ' + item.time : ''}</span>` : ''}
+                ${item.registration_url ? `<a href="${item.registration_url}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🎫 Register</a>` : ''}
+                ${item.agenda_url ? `<a href="${item.agenda_url}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">📋 Agenda</a>` : ''}
+                ${!item.registration_url && item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">View Details</a>` : ''}
+            </div>
+            
+            ${item.action ? `<div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                <span style="font-size: 13px; color: var(--text-secondary);">→ <strong>Action:</strong> ${item.action}</span>
+            </div>` : ''}
         </div>
     `).join('');
 }
@@ -378,16 +400,61 @@ function renderEmptyState() {
     updateHeroStats();
 }
 
-// Load archive
+// Load archive and populate dropdown
 async function loadArchive() {
     try {
         const response = await fetch(`${API_BASE}/archive.json`);
         if (response.ok) {
             archiveData = await response.json();
+            populateArchiveDropdown();
         }
     } catch (error) {
         console.log('No archive data available');
+        // Create archive from available files if archive.json doesn't exist
+        await createArchiveFromFiles();
     }
+}
+
+// Create archive list from available JSON files
+async function createArchiveFromFiles() {
+    // Try to discover available dates
+    const dates = ['2026-02-24']; // Known dates
+    const today = new Date().toISOString().split('T')[0];
+    
+    archiveData = dates.filter(d => d !== today).map(date => ({
+        date: date,
+        count: 25
+    }));
+    
+    populateArchiveDropdown();
+}
+
+// Populate archive dropdown
+function populateArchiveDropdown() {
+    const dropdown = document.getElementById('archive-dropdown');
+    if (!dropdown) return;
+    
+    // Clear existing options except "Today"
+    dropdown.innerHTML = '<option value="">Today</option>';
+    
+    // Sort by date descending
+    archiveData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    archiveData.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.date;
+        option.textContent = item.date;
+        dropdown.appendChild(option);
+    });
+    
+    // Add change listener
+    dropdown.addEventListener('change', (e) => {
+        if (e.target.value) {
+            loadDigest(e.target.value);
+        } else {
+            loadTodayDigest();
+        }
+    });
 }
 
 // Setup navigation
