@@ -52,10 +52,18 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /opt/newspiston
-            # List content to verify files exist
+            # Debug: List all files
+            echo "=== Current directory ==="
+            ls -la
+            echo "=== Content directory ==="
             ls -la content/
-            # Build and start
-            sudo docker compose up -d --build
-            # Verify content is accessible
-            sleep 5
-            curl -s http://localhost:8080/content/ | head -20
+            echo "=== Building image ==="
+            # Force rebuild with no cache
+            sudo docker compose build --no-cache
+            echo "=== Starting containers ==="
+            sudo docker compose up -d
+            echo "=== Verifying content in container ==="
+            sleep 3
+            sudo docker compose exec -T newspiston ls -la /usr/share/nginx/html/content/
+            echo "=== Testing content endpoint ==="
+            curl -v http://localhost:8080/content/2026-02-24.json 2>&1 | head -30
