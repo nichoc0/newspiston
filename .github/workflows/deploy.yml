@@ -24,12 +24,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command_timeout: 30s
           script: |
-            # Kill anything using port 80
-            sudo fuser -k 80/tcp 2>/dev/null || true
-            sudo pkill -f "python.*http.server" 2>/dev/null || true
-            sudo systemctl stop nginx 2>/dev/null || true
-            
-            cd /opt/newspiston
-            sudo docker compose down 2>/dev/null || true
-            sudo docker compose up -d --build
+            cd /opt/newspiston && sudo docker compose down; sudo docker compose up -d --build
