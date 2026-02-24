@@ -11,75 +11,81 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Package and deploy
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # Install nginx if not present
-            if ! command -v nginx &> /dev/null; then
-              sudo dnf install -y nginx
-              sudo systemctl enable nginx
-            fi
-            
-            # Create temp directory
-            sudo mkdir -p /tmp/newspiston-deploy
-            sudo rm -rf /tmp/newspiston-deploy/*
-
-      - name: Copy files via SCP
+      - name: Deploy files
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "index.html,styles.css,app.js,content"
-          target: /tmp/newspiston-deploy
+          target: /tmp/newspiston
           overwrite: true
 
-      - name: Deploy to nginx
+      - name: Configure nginx and deploy
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "=== Source files ==="
-            ls -la /tmp/newspiston-deploy/
-            ls -la /tmp/newspiston-deploy/content/
+            # Install nginx
+            sudo dnf install -y nginx || true
             
-            # Clean and copy to nginx
+            # Deploy files
+            sudo mkdir -p /usr/share/nginx/html
             sudo rm -rf /usr/share/nginx/html/*
-            sudo cp -r /tmp/newspiston-deploy/* /usr/share/nginx/html/
+            sudo cp -r /tmp/newspiston/* /usr/share/nginx/html/
             sudo chown -R nginx:nginx /usr/share/nginx/html
             
-            echo "=== Deployed files ==="
-            ls -la /usr/share/nginx/html/
-            ls -la /usr/share/nginx/html/content/
+            # Simple nginx config
+            sudo tee /etc/nginx/nginx.conf > /dev/null << 'EOF'
+            user nginx;
+            worker_processes auto;
+            error_log /var/log/nginx/error.log;
+            pid /run/nginx.pid;
             
-            # Configure nginx
-            sudo tee /etc/nginx/conf.d/default.conf > /dev/null << 'EOF'
-            server {
-                listen 80;
-                server_name localhost;
-                root /usr/share/nginx/html;
-                index index.html;
+            events {
+                worker_connections 1024;
+            }
+            
+            http {
+                log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                                  '$status $body_bytes_sent "$http_referer" '
+                                  '"$http_user_agent" "$http_x_forwarded_for"';
                 
-                location / {
-                    try_files $uri $uri/ =404;
+                access_log  /var/log/nginx/access.log  main;
+                
+                sendfile            on;
+                tcp_nopush          on;
+                tcp_nodelay         on;
+                keepalive_timeout   65;
+                types_hash_max_size 2048;
+                
+                include             /etc/nginx/mime.types;
+                default_type        application/octet-stream;
+                
+                server {
+                    listen       80 default_server;
+                    listen       [::]:80 default_server;
+                    server_name  _;
+                    root         /usr/share/nginx/html;
+                    index        index.html;
+                    
+                    location / {
+                        try_files $uri $uri/ =404;
+                    }
+                    
+                    location /content/ {
+                        add_header Cache-Control "no-cache";
+                    }
                 }
-                
-                location /content/ {
-                    add_header Cache-Control "no-cache, no-store, must-revalidate";
-                }
-                
-                gzip on;
-                gzip_types text/css application/json application/javascript;
             }
             EOF
             
-            sudo nginx -t && sudo systemctl restart nginx
+            # Start nginx
+            sudo systemctl enable nginx
+            sudo systemctl restart nginx
             
-            echo "=== Testing ==="
+            # Verify
+            ls -la /usr/share/nginx/html/content/
             curl -s http://localhost/content/2026-02-24.json | head -3
