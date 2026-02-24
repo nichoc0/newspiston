@@ -11,19 +11,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Copy files and deploy via SSH
+      - name: Stop containers and copy files
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Create app directory and ensure opc owns it
+            # Stop existing containers first
+            cd /opt/newspiston 2>/dev/null && sudo docker compose down || true
+            
+            # Ensure directory exists
             sudo mkdir -p /opt/newspiston
             sudo chown -R opc:opc /opt/newspiston
-            cd /opt/newspiston
-
-            # Install docker & docker-compose if not present
+            
+            # Install docker if needed
             if ! command -v docker &> /dev/null; then
               sudo dnf install -y dnf-utils
               sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
@@ -42,7 +44,7 @@ jobs:
           target: /opt/newspiston
           overwrite: true
 
-      - name: Build and restart containers
+      - name: Build and start containers
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -50,5 +52,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /opt/newspiston
-            sudo docker compose down || true
+            # List content to verify files exist
+            ls -la content/
+            # Build and start
             sudo docker compose up -d --build
+            # Verify content is accessible
+            sleep 5
+            curl -s http://localhost:8080/content/ | head -20
