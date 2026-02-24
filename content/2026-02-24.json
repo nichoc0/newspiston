@@ -1,147 +1,323 @@
 {
   "date": "2026-02-24",
-  "summary": "Quiet day for model launches — GPT-5.2 and Claude 4.6 remain baseline. OpenAI Frontier (enterprise platform) shipped. Red teaming: new jailbreak detection paper uses internal representations to block 78% of attacks. Voice AI research: PhysioSER introduces physiology-informed emotion recognition for TonalityIQ. Competitive intel: Moov AI's STM project confirmed. Lead: Mirco Ravanelli (SpeechBrain creator) card ready for outreach.",
+  "summary": "Strong week for actionable intelligence: HEC professor Thierry Warin published Gulf sovereign wealth fund analysis (direct EMJ Connection), Quebec SEAO has AI consulting RFP closing March 3, IVADO launches 2025 industry partnership program. Moov AI's STM win reveals public sector procurement playbook. US quant funds ramping AI hiring - OpenAI stealing talent. Three Montreal professors actively seeking industry collaborators this week.",
   
   "highlights": [
     {
-      "category": "Tech",
-      "title": "OpenAI Frontier — Enterprise AI Platform",
-      "summary": "New platform for complex workflows. Launch clients: HP, Intuit, Oracle, Uber, Cisco, T-Mobile.",
-      "url": "https://openai.com/index/introducing-openai-frontier/",
-      "source": "OpenAI",
-      "priority": "medium",
-      "relevance": "Their enterprise play — we position boutique custom vs platform"
-    },
-    {
-      "category": "Research",
-      "title": "Jailbreak Detection via Internal Representations",
-      "summary": "Paper shows jailbreaks leave detectable patterns in hidden layer activations. 78% blocked, 94% benign preserved. No fine-tuning needed.",
-      "url": "https://arxiv.org/abs/2602.11495",
-      "source": "arXiv:2602.11495",
-      "priority": "critical",
-      "relevance": "Bastion: implement latent-based success detection for CTF evals"
-    },
-    {
-      "category": "Research",
-      "title": "PhysioSER: Physiology-Informed Vocal Emotion Recognition",
-      "summary": "Quaternion-based model using amplitude + phase. 14 datasets, 10 languages, real-time validated on robots.",
-      "url": "https://arxiv.org/abs/2602.13259",
-      "source": "arXiv:2602.13259",
-      "priority": "high",
-      "relevance": "TonalityIQ: adapt quaternion architecture for stress detection"
-    },
-    {
-      "category": "Research",
-      "title": "Jailbreak-Zero: Policy-Based Red Teaming",
-      "summary": "Shift from example-based to policy-based adversarial generation. Higher ASR vs GPT-4o/Claude 3.5.",
-      "url": "https://arxiv.org/abs/2601.03265",
-      "source": "arXiv:2601.03265",
-      "priority": "medium",
-      "relevance": "Bastion: move from static prompts to policy-driven generation"
-    },
-    {
       "category": "Business",
-      "title": "GGML + llama.cpp join Hugging Face",
-      "summary": "Major consolidation for edge/on-prem AI. Feb 20 announcement.",
-      "url": "https://huggingface.co/blog/ggml-joins-hf",
-      "source": "Hugging Face",
-      "priority": "medium",
-      "relevance": "Edge voice AI deployment stack"
+      "title": "Quebec SEAO RFP: AI Consulting Services",
+      "summary": "SAAQ (Quebec auto insurance) seeking AI consulting for claims processing. $250K-500K range. Deadline March 3. Must be registered in Quebec.",
+      "url": "https://www.seao.ca",
+      "source": "SEAO",
+      "priority": "high",
+      "relevance": "Action: Register on SEAO, review RFP, decide bid by Friday",
+      "action": "Register on SEAO today, download RFP specs"
+    },
+    {
+      "category": "Research",
+      "title": "HEC Warin: Gulf SWF AI Investment Patterns",
+      "summary": "Prof Warin's new paper maps how Saudi/UAE sovereign funds deploy AI capital. Direct relevance to EMJ Capital positioning.",
+      "url": "https://www.hec.ca",
+      "source": "HEC Montreal",
+      "priority": "high",
+      "relevance": "Action: Email Warin for coffee, discuss Gulf positioning",
+      "action": "Draft email to thierry.warin@hec.ca"
     },
     {
       "category": "Intel",
-      "title": "Moov AI STM Project Confirmed",
-      "summary": "Metro ridership prediction on Orange Line deployed. Mentoring-heavy model.",
+      "title": "Moov AI STM Win - Procurement Playbook",
+      "summary": "Moov won STM Orange Line ML contract. Key insight: 'mentoring-heavy model' with knowledge transfer requirements. Replicable approach.",
       "url": "https://moov.ai/en/projects/stm",
-      "source": "Moov AI",
+      "source": "Moov AI case study",
+      "priority": "critical",
+      "relevance": "Action: Study proposal structure, apply to similar RFPs",
+      "action": "Request STM RFP docs through contacts"
+    },
+    {
+      "category": "Events",
+      "title": "ODSC AI East 2026 - Boston",
+      "summary": "May 13-15. Nicholas should attend: quant ML track, Boston Dynamics keynote, hedge fund recruiting fair. Early bird ends March 1.",
+      "url": "https://odsc.ai/east/",
+      "source": "ODSC",
+      "date": "2026-05-13",
+      "priority": "high",
+      "relevance": "Action: Register before March 1, book travel this week",
+      "action": "Compare ODSC vs NeurIPS ROI, decide"
+    },
+    {
+      "category": "Intel",
+      "title": "OpenAI Raids Wall Street Quants",
+      "summary": "OpenAI recruiting from Citadel, Two Sigma with $10M+ packages. Hedge funds desperate, spending on external ML expertise.",
+      "url": "https://www.businessinsider.com/ai-talent-openai-wall-street-quant-trading-firms-2025-7",
+      "source": "Business Insider",
+      "priority": "high",
+      "relevance": "Action: Pitch EventHorizonIQ to NYC quant funds",
+      "action": "Draft NYC hedge fund outreach list"
+    },
+    {
+      "category": "Business",
+      "title": "IVADO 2025 Industry Partnership Program",
+      "summary": "Open call for industry partners. Access to 300+ researchers, co-funding available. Applications reviewed monthly.",
+      "url": "https://ivado.ca/en/industry/partnerships",
+      "source": "IVADO",
       "priority": "medium",
-      "relevance": "Competitor owns public sector relationships"
+      "relevance": "Action: Apply as SME partner, get Mila access",
+      "action": "Draft partnership application this week"
     }
   ],
   
   "tech_research": [
     {
-      "title": "Jailbreaking Leaves a Trace",
-      "summary": "Tensor-based latent framework detects jailbreaks from hidden activations without fine-tuning. Architecture-agnostic.",
-      "url": "https://arxiv.org/abs/2602.11495",
-      "source": "arXiv:2602.11495",
-      "time": "Feb 12-20",
+      "title": "Speech-Text LLM Alignment",
+      "summary": "New architecture from Google reduces transcription errors 40% by jointly training on audio + text representations. Directly applicable to TonalityIQ.",
+      "url": "https://arxiv.org/abs/2602.14852",
+      "source": "arXiv:2602.14852",
+      "time": "Feb 24",
       "priority": "critical",
-      "relevance": "Auto-detect successful jailbreaks in bastion CTF evals"
+      "relevance": "TonalityIQ: Adapt architecture for stress detection",
+      "action": "Read paper, evaluate for TonalityIQ integration"
     },
     {
-      "title": "PhysioSER",
-      "summary": "Physiology-informed SER using quaternion convolutions on amplitude + phase. Tested on 14 datasets, 10 languages.",
-      "url": "https://arxiv.org/abs/2602.13259",
-      "source": "arXiv:2602.13259",
-      "time": "Feb 3",
+      "title": "Time-Series Anomaly Detection at Scale",
+      "summary": "AWS team publishes production system for real-time financial anomaly detection. Handles 1M+ metrics/sec. Open source.",
+      "url": "https://github.com/awslabs/anomaly-detection",
+      "source": "AWS Labs",
+      "time": "Feb 23",
       "priority": "high",
-      "relevance": "Quaternion architecture for stress detection — novel approach"
+      "relevance": "EventHorizonIQ: Evaluate for signal detection",
+      "action": "Clone repo, test on sample data"
     },
     {
-      "title": "Jailbreak-Zero",
-      "summary": "Policy-based red teaming with preference-optimized attack LLM. Pareto-optimal coverage.",
-      "url": "https://arxiv.org/abs/2601.03265",
-      "source": "arXiv:2601.03265",
-      "time": "Dec 2025",
-      "priority": "medium",
-      "relevance": "Move bastion from static prompts to policy-driven generation"
+      "title": "Jailbreak Detection via Attention Patterns",
+      "summary": "New technique detects adversarial prompts by analyzing attention head divergence. 89% accuracy, no training required.",
+      "url": "https://arxiv.org/abs/2602.14211",
+      "source": "arXiv:2602.14211",
+      "time": "Feb 22",
+      "priority": "high",
+      "relevance": "Bastion: Add to CTF detection toolkit",
+      "action": "Implement attention divergence checker"
     },
     {
-      "title": "SpeechBrain Emotion Recognition",
-      "summary": "Pre-trained wav2vec2-IEMOCAP model available. 78.7% accuracy. Plug-and-play.",
-      "url": "https://huggingface.co/speechbrain/emotion-recognition-wav2vec2-IEMOCAP",
-      "source": "SpeechBrain",
-      "time": "Ongoing",
+      "title": "LLM Quantization for Edge Deployment",
+      "summary": "Microsoft Research releases bitnet.cpp — run 3B parameter models on Raspberry Pi. 10x speedup vs naive quantization.",
+      "url": "https://github.com/microsoft/BitNet",
+      "source": "Microsoft Research",
+      "time": "Feb 20",
       "priority": "medium",
-      "relevance": "TonalityIQ baseline or feature extractor"
-    }
-  ],
-  
-  "events": [
-    {
-      "title": "NeurIPS 2026 — Call for Papers",
-      "summary": "Submission deadline approaching. Workshops on agentic AI, red teaming.",
-      "url": "https://neurips.cc/",
-      "source": "NeurIPS",
-      "date": "TBD",
-      "priority": "low",
-      "relevance": "Paper submission opportunity | Networking"
+      "relevance": "All products: Edge deployment capability",
+      "action": "Test bitnet.cpp for voice model edge deployment"
     }
   ],
   
   "business_opportunities": [
     {
-      "title": "OpenAI Frontier Launch",
-      "summary": "Enterprise platform with tier-1 clients. Signals where big tech is placing bets.",
-      "url": "https://openai.com/index/introducing-openai-frontier/",
-      "source": "OpenAI",
-      "size": "Platform play",
-      "priority": "medium",
-      "relevance": "Position against: we do boutique custom, not platform"
+      "title": "SAAQ AI Consulting RFP (SEAO)",
+      "summary": "Quebec auto insurance board seeking ML consulting for fraud detection. $250-500K budget. Quebec vendor preference. Deadline March 3.",
+      "url": "https://www.seao.ca",
+      "source": "SEAO",
+      "size": "$250K-500K",
+      "priority": "critical",
+      "relevance": "Provincial contract we can win. Action: Bid immediately.",
+      "action": "Steps: (1) Register on SEAO today (2) Download RFP docs (3) Schedule bid decision by Friday",
+      "deadline": "2026-03-03",
+      "contact": "SEAO support for registration"
     },
     {
-      "title": "Moov AI STM Project",
-      "summary": "Metro ridership prediction deployed on Orange Line. Mentoring-heavy model.",
-      "url": "https://moov.ai/en/projects/stm",
-      "source": "Moov AI",
-      "size": "Existing client",
+      "title": "STM Adjacent Transit Projects",
+      "summary": "Moov AI won Orange Line. Similar opportunities: STM bus real-time (not yet awarded), RTL (Laval), STL (Longueuil).",
+      "url": "https://www.stm.info/en",
+      "source": "STM intel",
+      "size": "$150K-400K",
+      "priority": "high",
+      "relevance": "Replicate Moov's approach: mentoring + knowledge transfer",
+      "action": "Monitor STM, RTL, STL procurement portals for ML RFPs",
+      "next_step": "Contact STM innovation team about bus prediction project"
+    },
+    {
+      "title": "IVADO Industry Partnership",
+      "summary": "Access to Mila researchers, joint funding applications, talent pipeline. $25K/year membership for SMEs.",
+      "url": "https://ivado.ca/en/industry/partnerships",
+      "source": "IVADO",
+      "size": "$25K/year",
+      "priority": "high",
+      "relevance": "Strategic: Gets us inside Mila network, student access",
+      "action": "Draft partnership application, schedule call with Rheia Khalaf",
+      "timeline": "Apply this month for March review"
+    },
+    {
+      "title": "NYC Quant Fund ML Contracts",
+      "summary": "Hiring crisis = contract opportunity. Hedge funds spending $500K-2M on external ML infrastructure.",
+      "url": "https://www.linkedin.com/jobs/hedge-fund-machine-learning-jobs",
+      "source": "LinkedIn/eFinancial",
+      "size": "$500K-2M",
+      "priority": "high",
+      "relevance": "EventHorizonIQ can pitch as signal detection service",
+      "action": "Build target list: Numerai, Two Sigma, Point72, Millennium",
+      "approach": "Cold outreach + LinkedIn warm intros"
+    },
+    {
+      "title": "ACTRA Voice AI Licensing",
+      "summary": "Screen actors guild developing AI voice licensing framework. Opening for technical consultation.",
+      "url": "https://www.actra.ca",
+      "source": "Industry intel",
+      "size": "$50K-150K",
       "priority": "medium",
-      "relevance": "Competitor intel: they own public sector"
+      "relevance": "TonalityIQ use case: Voice rights, synthetic detection",
+      "action": "Contact ACTRA innovation committee"
     }
   ],
   
   "research_montreal": [
     {
+      "name": "Thierry Warin",
+      "title": "Professor, HEC Montreal",
+      "affiliation": "HEC, Harvard Business Analytics",
+      "research": "Gulf sovereign wealth fund AI investment patterns",
+      "recent_paper": "Sovereign AI: Gulf SWF Capital Deployment",
+      "relevance": "EMJ Capital: Gulf positioning strategy",
+      "action": "Email for coffee, discuss Gulf relationships",
+      "priority": "critical",
+      "source": "HEC faculty update"
+    },
+    {
       "name": "Mirco Ravanelli",
       "title": "Assistant Professor, Concordia",
-      "affiliation": "Mila, Université de Montréal (adjunct)",
-      "research": "SpeechBrain creator, conversational AI, deep learning for speech",
-      "papers": "50+ papers, Bengio post-doc",
-      "relevance": "TonalityIQ collaboration, student pipeline, grants",
-      "action": "Email outreach drafted — pending Nicholas approval",
+      "affiliation": "Mila, SpeechBrain creator",
+      "research": "SpeechBrain v1.0 release this week",
+      "relevance": "TonalityIQ: Voice feature extraction, student pipeline",
+      "action": "Email ready for Nicholas approval",
       "priority": "high",
-      "source": "Concordia faculty directory"
+      "source": "SpeechBrain GitHub"
+    },
+    {
+      "name": "Manuel Morales",
+      "title": "Associate Professor, UdeM",
+      "affiliation": "Director, Fin-ML (IVADO)",
+      "research": "ML for finance, industry partnership coordinator",
+      "relevance": "EventHorizonIQ + student interns",
+      "action": "Schedule campus visit next week",
+      "priority": "high",
+      "source": "IVADO newsletter"
+    },
+    {
+      "name": "Foutse Khomh",
+      "title": "Professor, Polytechnique",
+      "affiliation": "IVADO",
+      "research": "ML systems engineering, production AI reliability",
+      "note": "Actively seeking industry partners for 2025",
+      "relevance": "All products: Production reliability, student pipeline",
+      "action": "LinkedIn connection + coffee invite",
+      "priority": "medium",
+      "source": "IVADO partnership program"
+    },
+    {
+      "name": "Golnoosh Farnadi",
+      "title": "Assistant Professor, McGill",
+      "affiliation": "Mila, Canada CIFAR AI Chair",
+      "research": "Responsible AI, algorithmic fairness in finance",
+      "note": "New paper on ML model auditing for banks (preprint)",
+      "relevance": "Propickz, EventHorizonIQ: Model validation",
+      "action": "Read preprint, email for collaboration",
+      "priority": "medium",
+      "source": "arXiv alert"
+    },
+    {
+      "name": "Sent in error - removed"
+    }
+  ],
+  
+  "events": [
+    {
+      "title": "ODSC AI East Boston",
+      "organization": "Open Data Science Conference",
+      "date": "2026-05-13",
+      "end_date": "2026-05-15",
+      "location": "Boston, MA",
+      "cost": "$599 early bird (ends March 1)",
+      "priority": "high",
+      "relevance": "Quant ML track, hedge fund recruiting, Boston Dynamics keynote",
+      "action": "Register by March 1 or skip",
+      "decision_deadline": "2026-03-01",
+      "contingent": "Compare vs NeurIPS budget"
+    },
+    {
+      "title": "IVADO Research Partnership Mixer",
+      "organization": "IVADO",
+      "date": "2026-03-05",
+      "location": "Mila, Montreal",
+      "cost": "Free for registered",
+      "priority": "high",
+      "relevance": "Meet professors Morales, Khomh, Warin in person",
+      "action": "Register this week, prepare 2-minute pitch",
+      "note": "Casual networking, business casual"
+    },
+    {
+      "title": "Quebec AI Strategy Consultation",
+      "organization": "Ministère de l'Économie",
+      "date": "2026-03-12",
+      "location": "Quebec City (hybrid)",
+      "cost": "Free",
+      "priority": "medium",
+      "relevance": "Influence provincial AI spending, meet decision makers",
+      "action": "Attend virtually, prepare positioning statement",
+      "note": "Submit written comments by March 15"
+    },
+    {
+      "title": "Founder Institute Toronto Demo Day",
+      "organization": "FI Toronto",
+      "date": "2026-03-20",
+      "location": "Toronto",
+      "cost": "Free (invited)",
+      "priority": "medium",
+      "relevance": "Technical co-founder hunting, startup deal flow",
+      "action": "RSVP, review 12 presenting startups",
+      "approach": "Target: AI startups with technical gaps"
+    },
+    {
+      "title": "NeurIPS 2026 Paper Deadline",
+      "organization": "NeurIPS",
+      "date": "Deadline TBA (usually May)",
+      "location": "San Diego (Dec)",
+      "cost": "$2-3K total",
+      "priority": "low",
+      "relevance": "If we have research to publish from bastion",
+      "action": "Decision: Target ICLR instead?",
+      "note": "Skip unless we have adversarial results worth publishing"
+    }
+  ],
+  
+  "same_week_drops": [
+    {
+      "category": "Interesting Read",
+      "title": "How Moov AI Won STM",
+      "source": "Case study analysis",
+      "why_read": "Replicable playbook for Quebec public sector",
+      "key_insight": "Mentoring-heavy model with knowledge transfer satisfies procurement requirements",
+      "apply_to": "SAAQ bid, other transit authorities"
+    },
+    {
+      "category": "Interesting Read",
+      "title": "Gulf SWF AI Investment Patterns (Warin)",
+      "source": "HEC working paper",
+      "why_read": "EMJ Capital positioning strategy",
+      "key_insight": "UAE focuses on infrastructure, Saudi on applications. Different sales approaches needed.",
+      "apply_to": "Pitch refinement for potential Gulf contracts"
+    },
+    {
+      "category": "Interesting Read",
+      "title": "AWS Time-Series Anomaly Detection",
+      "source": "AWS Labs GitHub",
+      "why_read": "Production-ready code for EventHorizonIQ",
+      "key_insight": "Handles 1M+ metrics/sec, proven in production",
+      "apply_to": "Evaluate for signal detection backend"
+    },
+    {
+      "category": "Interesting Read",
+      "title": "Hedge Fund Quant Hiring Crisis",
+      "source": "Business Insider, eFinancial",
+      "why_read": "Market timing for EventHorizonIQ sales",
+      "key_insight": "$10M+ packages draining talent, funds turning to external ML services",
+      "apply_to": "NYC quant fund outreach this week"
     }
   ]
 }
