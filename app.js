@@ -1,6 +1,6 @@
 /**
- * NewsPiston - Piston Solutions Intelligence Digest
- * Lightweight vanilla JS - no frameworks
+ * NewsPiston v2 - Piston Solutions Intelligence Digest
+ * 4-Section Format: Tech | Events | Business | MTL Research
  */
 
 const API_BASE = './content';
@@ -14,13 +14,8 @@ async function init() {
     updateTimestamps();
     setInterval(updateTimestamps, 1000);
     
-    // Try to load today's digest
     await loadTodayDigest();
-    
-    // Load archive
     await loadArchive();
-    
-    // Setup navigation
     setupNavigation();
 }
 
@@ -48,17 +43,6 @@ async function loadTodayDigest() {
         currentDigest = await response.json();
         renderDigest(currentDigest);
     } catch (error) {
-        // Try sample data
-        try {
-            const sample = await fetch(`${API_BASE}/sample.json`);
-            if (sample.ok) {
-                currentDigest = await sample.json();
-                renderDigest(currentDigest);
-                return;
-            }
-        } catch (e) {}
-        
-        // Show empty state
         renderEmptyState();
     }
 }
@@ -75,13 +59,13 @@ function renderDigest(digest) {
     
     if (highlights.length > 0) {
         highlightsEl.innerHTML = highlights.map(h => `
-            <div class="highlight-card">
+            <div class="highlight-card priority-${h.priority || 'medium'}">
                 <div class="highlight-category">${h.category}</div>
                 <div class="highlight-title">${h.title}</div>
                 <div class="highlight-summary">${h.summary}</div>
                 <div class="item-meta">
-                    <span class="relevance-tag tag-${h.priority || 'medium'}">${h.priority?.toUpperCase() || 'MEDIUM'}</span>
-                    ${h.source ? `<span class="item-source"><a href="${h.url}" target="_blank" rel="noopener">${h.source}</a></span>` : ''}
+                    <span class="priority-badge ${h.priority || 'medium'}">${h.priority?.toUpperCase() || 'MEDIUM'}</span>
+                    ${h.url ? `<span class="item-source"><a href="${h.url}" target="_blank" rel="noopener">${h.source || 'Link'}</a></span>` : ''}
                 </div>
             </div>
         `).join('');
@@ -89,44 +73,129 @@ function renderDigest(digest) {
         highlightsEl.innerHTML = '<div class="empty-state">No highlights for today.</div>';
     }
     
-    // Render sections
-    renderSection('arxiv', digest.arxiv || []);
-    renderSection('launches', digest.launches || []);
-    renderSection('procurement', digest.procurement || []);
-    renderSection('competitors', digest.competitors || []);
-    renderSection('academic', digest.academic || []);
-    renderSection('industry', digest.industry || []);
+    // Render 4 main sections
+    renderTechSection(digest.tech_research || []);
+    renderEventsSection(digest.events || []);
+    renderBusinessSection(digest.business_opportunities || []);
+    renderResearchSection(digest.research_montreal || []);
 }
 
-// Render section
-function renderSection(sectionId, items) {
-    const listEl = document.getElementById(`${sectionId}-list`);
-    const countEl = document.getElementById(`${sectionId}-count`);
+// Render Tech & Research section
+function renderTechSection(items) {
+    const listEl = document.getElementById('tech-list');
+    const countEl = document.getElementById('tech-count');
     
     countEl.textContent = items.length;
     
     if (items.length === 0) {
-        listEl.innerHTML = `<div class="empty-state">No items in this section today.</div>`;
+        listEl.innerHTML = `<div class="empty-state">No tech/research items today.</div>`;
         return;
     }
     
     listEl.innerHTML = items.map((item, index) => `
         <div class="news-item">
-            <div class="item-score">${index + 1}</div>
             <div class="item-content">
                 <div class="item-title">
                     <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
                 </div>
                 <div class="item-summary">${item.summary}</div>
                 <div class="item-meta">
-                    <span class="item-source">
-                        <a href="${item.url}" target="_blank" rel="noopener">${item.source}</a>
-                    </span>
-                    <span class="relevance-tag tag-${item.priority || 'medium'}">${item.priority?.toUpperCase() || 'MEDIUM'}</span>
-                    ${item.relevance ? `<span class="relevance-tag tag-${item.priority || 'medium'}">${item.relevance}</span>` : ''}
+                    <span class="source-tag">${item.source}</span>
+                    <span class="priority-badge ${item.priority || 'medium'}">${item.priority?.toUpperCase() || 'MEDIUM'}</span>
+                    ${item.relevance ? `<span class="relevance-text">→ ${item.relevance}</span>` : ''}
                 </div>
             </div>
             <div class="item-time">${item.time || ''}</div>
+        </div>
+    `).join('');
+}
+
+// Render Events section
+function renderEventsSection(items) {
+    const listEl = document.getElementById('events-list');
+    const countEl = document.getElementById('events-count');
+    
+    countEl.textContent = items.length;
+    
+    if (items.length === 0) {
+        listEl.innerHTML = `<div class="empty-state">No events today.</div>`;
+        return;
+    }
+    
+    listEl.innerHTML = items.map(item => `
+        <div class="news-item">
+            <div class="item-content">
+                <div class="item-title">
+                    <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+                </div>
+                <div class="item-summary">${item.summary}</div>
+                <div class="item-meta">
+                    <span class="source-tag">${item.source}</span>
+                    ${item.date ? `<span class="date-tag">${item.date}</span>` : ''}
+                    <span class="priority-badge ${item.priority || 'medium'}">${item.priority?.toUpperCase() || 'MEDIUM'}</span>
+                    ${item.relevance ? `<span class="relevance-text">→ ${item.relevance}</span>` : ''}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Render Business Opportunities section
+function renderBusinessSection(items) {
+    const listEl = document.getElementById('business-list');
+    const countEl = document.getElementById('business-count');
+    
+    countEl.textContent = items.length;
+    
+    if (items.length === 0) {
+        listEl.innerHTML = `<div class="empty-state">No business opportunities today.</div>`;
+        return;
+    }
+    
+    listEl.innerHTML = items.map(item => `
+        <div class="news-item">
+            <div class="item-content">
+                <div class="item-title">
+                    <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+                </div>
+                <div class="item-summary">${item.summary}</div>
+                <div class="item-meta">
+                    <span class="source-tag">${item.source}</span>
+                    ${item.size ? `<span class="size-tag">${item.size}</span>` : ''}
+                    <span class="priority-badge ${item.priority || 'medium'}">${item.priority?.toUpperCase() || 'MEDIUM'}</span>
+                    ${item.relevance ? `<span class="relevance-text">→ ${item.relevance}</span>` : ''}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Render Montreal Research section
+function renderResearchSection(items) {
+    const listEl = document.getElementById('research-list');
+    const countEl = document.getElementById('research-count');
+    
+    countEl.textContent = items.length;
+    
+    if (items.length === 0) {
+        listEl.innerHTML = `<div class="empty-state">No research opportunities today.</div>`;
+        return;
+    }
+    
+    listEl.innerHTML = items.map(item => `
+        <div class="news-item research-card">
+            <div class="item-content">
+                <div class="item-title">${item.name}</div>
+                <div class="research-title">${item.title}</div>
+                ${item.affiliation ? `<div class="research-affiliation">${item.affiliation}</div>` : ''}
+                <div class="item-summary">${item.research}</div>
+                <div class="item-meta">
+                    <span class="source-tag">${item.source || 'Research'}</span>
+                    <span class="priority-badge ${item.priority || 'medium'}">${item.priority?.toUpperCase() || 'MEDIUM'}</span>
+                </div>
+                ${item.relevance ? `<div class="relevance-box">→ ${item.relevance}</div>` : ''}
+                ${item.action ? `<div class="action-box">Action: ${item.action}</div>` : ''}
+            </div>
         </div>
     `).join('');
 }
@@ -137,14 +206,15 @@ function renderEmptyState() {
     summary.innerHTML = `
         <p class="executive-summary">
             <strong>Status:</strong> No digest available for today. 
-            Content is ingested via JSON files in the <code>content/</code> directory. 
-            Add <code>YYYY-MM-DD.json</code> to publish.
+            Content is ingested via JSON files in the <code>content/</code> directory.
         </p>
     `;
     
-    ['arxiv', 'launches', 'procurement', 'competitors', 'academic', 'industry'].forEach(section => {
-        document.getElementById(`${section}-list`).innerHTML = 
-            `<div class="empty-state">Waiting for data ingestion...</div>`;
+    ['tech', 'events', 'business', 'research'].forEach(section => {
+        const listEl = document.getElementById(`${section}-list`);
+        const countEl = document.getElementById(`${section}-count`);
+        if (listEl) listEl.innerHTML = `<div class="empty-state">Waiting for data...</div>`;
+        if (countEl) countEl.textContent = '0';
     });
 }
 
@@ -182,7 +252,6 @@ function renderArchive() {
 function setupNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     
-    // Update active link on scroll
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section[id]');
         const scrollPos = window.scrollY + 100;
@@ -203,7 +272,6 @@ function setupNavigation() {
         });
     });
     
-    // Smooth scroll on click
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
