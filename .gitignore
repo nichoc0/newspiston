@@ -29,7 +29,7 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Content (auto-generated, but we want to track sample)
-content/*.json
-!content/sample.json
-!content/archive.json
+# Content (track all JSON for deployment)
+# content/*.json
+# !content/sample.json
+# !content/archive.json

@@ -1,0 +1,147 @@
+{
+  "date": "2026-02-24",
+  "summary": "Quiet day for model launches — GPT-5.2 and Claude 4.6 remain baseline. OpenAI Frontier (enterprise platform) shipped. Red teaming: new jailbreak detection paper uses internal representations to block 78% of attacks. Voice AI research: PhysioSER introduces physiology-informed emotion recognition for TonalityIQ. Competitive intel: Moov AI's STM project confirmed. Lead: Mirco Ravanelli (SpeechBrain creator) card ready for outreach.",
+  
+  "highlights": [
+    {
+      "category": "Tech",
+      "title": "OpenAI Frontier — Enterprise AI Platform",
+      "summary": "New platform for complex workflows. Launch clients: HP, Intuit, Oracle, Uber, Cisco, T-Mobile.",
+      "url": "https://openai.com/index/introducing-openai-frontier/",
+      "source": "OpenAI",
+      "priority": "medium",
+      "relevance": "Their enterprise play — we position boutique custom vs platform"
+    },
+    {
+      "category": "Research",
+      "title": "Jailbreak Detection via Internal Representations",
+      "summary": "Paper shows jailbreaks leave detectable patterns in hidden layer activations. 78% blocked, 94% benign preserved. No fine-tuning needed.",
+      "url": "https://arxiv.org/abs/2602.11495",
+      "source": "arXiv:2602.11495",
+      "priority": "critical",
+      "relevance": "Bastion: implement latent-based success detection for CTF evals"
+    },
+    {
+      "category": "Research",
+      "title": "PhysioSER: Physiology-Informed Vocal Emotion Recognition",
+      "summary": "Quaternion-based model using amplitude + phase. 14 datasets, 10 languages, real-time validated on robots.",
+      "url": "https://arxiv.org/abs/2602.13259",
+      "source": "arXiv:2602.13259",
+      "priority": "high",
+      "relevance": "TonalityIQ: adapt quaternion architecture for stress detection"
+    },
+    {
+      "category": "Research",
+      "title": "Jailbreak-Zero: Policy-Based Red Teaming",
+      "summary": "Shift from example-based to policy-based adversarial generation. Higher ASR vs GPT-4o/Claude 3.5.",
+      "url": "https://arxiv.org/abs/2601.03265",
+      "source": "arXiv:2601.03265",
+      "priority": "medium",
+      "relevance": "Bastion: move from static prompts to policy-driven generation"
+    },
+    {
+      "category": "Business",
+      "title": "GGML + llama.cpp join Hugging Face",
+      "summary": "Major consolidation for edge/on-prem AI. Feb 20 announcement.",
+      "url": "https://huggingface.co/blog/ggml-joins-hf",
+      "source": "Hugging Face",
+      "priority": "medium",
+      "relevance": "Edge voice AI deployment stack"
+    },
+    {
+      "category": "Intel",
+      "title": "Moov AI STM Project Confirmed",
+      "summary": "Metro ridership prediction on Orange Line deployed. Mentoring-heavy model.",
+      "url": "https://moov.ai/en/projects/stm",
+      "source": "Moov AI",
+      "priority": "medium",
+      "relevance": "Competitor owns public sector relationships"
+    }
+  ],
+  
+  "tech_research": [
+    {
+      "title": "Jailbreaking Leaves a Trace",
+      "summary": "Tensor-based latent framework detects jailbreaks from hidden activations without fine-tuning. Architecture-agnostic.",
+      "url": "https://arxiv.org/abs/2602.11495",
+      "source": "arXiv:2602.11495",
+      "time": "Feb 12-20",
+      "priority": "critical",
+      "relevance": "Auto-detect successful jailbreaks in bastion CTF evals"
+    },
+    {
+      "title": "PhysioSER",
+      "summary": "Physiology-informed SER using quaternion convolutions on amplitude + phase. Tested on 14 datasets, 10 languages.",
+      "url": "https://arxiv.org/abs/2602.13259",
+      "source": "arXiv:2602.13259",
+      "time": "Feb 3",
+      "priority": "high",
+      "relevance": "Quaternion architecture for stress detection — novel approach"
+    },
+    {
+      "title": "Jailbreak-Zero",
+      "summary": "Policy-based red teaming with preference-optimized attack LLM. Pareto-optimal coverage.",
+      "url": "https://arxiv.org/abs/2601.03265",
+      "source": "arXiv:2601.03265",
+      "time": "Dec 2025",
+      "priority": "medium",
+      "relevance": "Move bastion from static prompts to policy-driven generation"
+    },
+    {
+      "title": "SpeechBrain Emotion Recognition",
+      "summary": "Pre-trained wav2vec2-IEMOCAP model available. 78.7% accuracy. Plug-and-play.",
+      "url": "https://huggingface.co/speechbrain/emotion-recognition-wav2vec2-IEMOCAP",
+      "source": "SpeechBrain",
+      "time": "Ongoing",
+      "priority": "medium",
+      "relevance": "TonalityIQ baseline or feature extractor"
+    }
+  ],
+  
+  "events": [
+    {
+      "title": "NeurIPS 2026 — Call for Papers",
+      "summary": "Submission deadline approaching. Workshops on agentic AI, red teaming.",
+      "url": "https://neurips.cc/",
+      "source": "NeurIPS",
+      "date": "TBD",
+      "priority": "low",
+      "relevance": "Paper submission opportunity | Networking"
+    }
+  ],
+  
+  "business_opportunities": [
+    {
+      "title": "OpenAI Frontier Launch",
+      "summary": "Enterprise platform with tier-1 clients. Signals where big tech is placing bets.",
+      "url": "https://openai.com/index/introducing-openai-frontier/",
+      "source": "OpenAI",
+      "size": "Platform play",
+      "priority": "medium",
+      "relevance": "Position against: we do boutique custom, not platform"
+    },
+    {
+      "title": "Moov AI STM Project",
+      "summary": "Metro ridership prediction deployed on Orange Line. Mentoring-heavy model.",
+      "url": "https://moov.ai/en/projects/stm",
+      "source": "Moov AI",
+      "size": "Existing client",
+      "priority": "medium",
+      "relevance": "Competitor intel: they own public sector"
+    }
+  ],
+  
+  "research_montreal": [
+    {
+      "name": "Mirco Ravanelli",
+      "title": "Assistant Professor, Concordia",
+      "affiliation": "Mila, Université de Montréal (adjunct)",
+      "research": "SpeechBrain creator, conversational AI, deep learning for speech",
+      "papers": "50+ papers, Bengio post-doc",
+      "relevance": "TonalityIQ collaboration, student pipeline, grants",
+      "action": "Email outreach drafted — pending Nicholas approval",
+      "priority": "high",
+      "source": "Concordia faculty directory"
+    }
+  ]
+}
