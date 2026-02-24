@@ -205,6 +205,139 @@ main {
     font-weight: 600;
 }
 
+.section-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    margin-top: -8px;
+    font-style: italic;
+}
+
+/* Priority badges for new layout */
+.priority-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.priority-badge.critical {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+}
+
+.priority-badge.high {
+    background: rgba(255, 170, 0, 0.15);
+    color: var(--accent-amber);
+    border: 1px solid rgba(255, 170, 0, 0.3);
+}
+
+.priority-badge.medium {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.priority-badge.low {
+    background: rgba(106, 106, 120, 0.2);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+/* Source and metadata tags */
+.source-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-purple);
+    background: rgba(168, 85, 247, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.date-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-amber);
+    background: rgba(255, 170, 0, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.size-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-green);
+    background: rgba(0, 208, 132, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.relevance-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Research cards */
+.research-card {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.research-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.research-affiliation {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+}
+
+.relevance-box {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 2px solid var(--accent-blue);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.action-box {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: rgba(0, 208, 132, 0.05);
+    border-left: 2px solid var(--accent-green);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+}
+
+/* Priority colors for highlight cards */
+.highlight-card.priority-critical {
+    border-left: 3px solid var(--accent-red);
+}
+
+.highlight-card.priority-high {
+    border-left: 3px solid var(--accent-amber);
+}
+
+.highlight-card.priority-medium {
+    border-left: 3px solid var(--accent-blue);
+}
+
+.highlight-card.priority-low {
+    border-left: 3px solid var(--text-muted);
+}
+
 .date-badge {
     font-family: var(--font-mono);
     font-size: 0.8rem;
