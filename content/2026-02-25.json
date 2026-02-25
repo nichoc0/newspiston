@@ -1,0 +1,96 @@
+{
+  "date": "2026-02-25",
+  "summary": "Major model news: Gemini 3.1 Pro announced with 1M token context and 77.1% ARC-AGI-2 score. DeepSeek V4 rumors surface — leaked benchmarks show 90% HumanEval, could disrupt coding market. Claude Opus 4.6 and GPT-5.2 remain baseline. GitHub trending: awesome-llm-apps collection gaining traction for RAG patterns. No critical procurement alerts. Montreal research pipeline quiet today.",
+  
+  "highlights": [
+    {
+      "category": "Tech",
+      "title": "Gemini 3.1 Pro Announced",
+      "summary": "Google's new Pro-tier model: 1M token context window, 77.1% on ARC-AGI-2, full multimodal (text/image/audio/video/code).",
+      "url": "https://deepmind.google/gemini",
+      "source": "Google DeepMind",
+      "priority": "critical",
+      "relevance": "Evaluate against GPT-5.2 for client work. 1M context opens new use cases.",
+      "action": "Benchmark Gemini 3.1 Pro on coding tasks vs Claude Opus 4.6"
+    },
+    {
+      "category": "Tech",
+      "title": "DeepSeek V4 Leaked Benchmarks",
+      "summary": "Rumored 90% HumanEval, 1M token context. Expected mid-February. Could undercut OpenAI/Anthropic on price.",
+      "url": "https://www.humai.blog/deepseek-v4",
+      "source": "Industry rumors",
+      "priority": "high",
+      "relevance": "If real, major pricing pressure on frontier models. Watch for official drop.",
+      "action": "Monitor for official announcement; prepare cost comparison"
+    },
+    {
+      "category": "Research",
+      "title": "awesome-llm-apps Trending",
+      "summary": "Collection of LLM apps with AI Agents and RAG patterns. Headroom Context Optimization claims 50-90% API cost reduction.",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "GitHub",
+      "priority": "medium",
+      "relevance": "RAG patterns applicable to EventHorizonIQ knowledge base. Cost optimization relevant for all projects.",
+      "action": "Review context compression techniques for our LLM pipelines"
+    }
+  ],
+  
+  "tech_research": [
+    {
+      "title": "Gemini 3.1 Pro Launch",
+      "summary": "Google's answer to GPT-5 speed + Claude reasoning. 1M context, multimodal native.",
+      "url": "https://deepmind.google/gemini",
+      "source": "Google",
+      "priority": "critical",
+      "relevance": "Direct competitor to our baseline models. Must evaluate."
+    },
+    {
+      "title": "DeepSeek V4 Threat",
+      "summary": "Chinese model rumored to outperform on coding with 90% HumanEval. 1M context.",
+      "url": "https://www.humai.blog/deepseek-v4",
+      "source": "Industry analysis",
+      "priority": "high",
+      "relevance": "Pricing disruption potential. Gulf clients may prefer non-US options."
+    },
+    {
+      "title": "ollama adds Kimi-K2.5, GLM-5",
+      "summary": "Local inference now supports Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma.",
+      "url": "https://github.com/ollama/ollama",
+      "source": "GitHub",
+      "priority": "medium",
+      "relevance": "Local inference options for bastion red-teaming pipeline."
+    }
+  ],
+  
+  "events": [
+    {
+      "title": "No new conferences today",
+      "date": "N/A",
+      "location": "N/A",
+      "priority": "low",
+      "relevance": "Check weekly for updates"
+    }
+  ],
+  
+  "business_opportunities": [
+    {
+      "title": "No new procurement alerts",
+      "organization": "N/A",
+      "value": "N/A",
+      "deadline": "N/A",
+      "priority": "low",
+      "relevance": "Continue monitoring SEAO, SAM.gov, UAE portals"
+    }
+  ],
+  
+  "research_montreal": [
+    {
+      "title": "Quiet day — no new lab announcements",
+      "professor": "N/A",
+      "university": "N/A",
+      "research_area": "N/A",
+      "priority": "low",
+      "relevance": "Check IVADO, Mila newsletters weekly"
+    }
+  ]
+}

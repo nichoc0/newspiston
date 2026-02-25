@@ -1,6 +1,6 @@
 {
   "date": "2026-02-24",
-  "summary": "Strong week for actionable intelligence: HEC professor Thierry Warin published Gulf sovereign wealth fund analysis (direct EMJ Connection), Quebec SEAO has AI consulting RFP closing March 3, IVADO launches 2025 industry partnership program. Moov AI's STM win reveals public sector procurement playbook. US quant funds ramping AI hiring - OpenAI stealing talent. Three Montreal professors actively seeking industry collaborators this week.",
+  "summary": "Strong week for actionable intelligence: Quebec SEAO has AI consulting RFP closing March 3, IVADO launches 2025 industry partnership program. Moov AI's STM win reveals public sector procurement playbook. US quant funds ramping AI hiring - OpenAI stealing talent. Three Montreal professors actively seeking industry collaborators this week.",
   
   "highlights": [
     {
@@ -15,13 +15,13 @@
     },
     {
       "category": "Research",
-      "title": "HEC Warin: Gulf SWF AI Investment Patterns",
-      "summary": "Prof Warin's new paper maps how Saudi/UAE sovereign funds deploy AI capital. Direct relevance to EMJ Capital positioning.",
-      "url": "https://www.hec.ca",
+      "title": "HEC Warin: Data Science for Global Transformations",
+      "summary": "Prof Warin at HEC Montreal focuses on AI regulation, economic analysis, and data science for global business. Potential collaboration on AI adoption frameworks.",
+      "url": "https://www.hec.ca/en/profs/thierry.warin.html",
       "source": "HEC Montreal",
-      "priority": "high",
-      "relevance": "Action: Email Warin for coffee, discuss Gulf positioning",
-      "action": "Draft email to thierry.warin@hec.ca"
+      "priority": "medium",
+      "relevance": "Business school perspective on AI adoption, executive education partnerships",
+      "action": "Research actual publications before outreach"
     },
     {
       "category": "Intel",
