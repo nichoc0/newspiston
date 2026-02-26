@@ -93,7 +93,7 @@
     },
     {
       "title": "IVADO AI Job Fair 2026",
-      "date": "February 25, 2026 (Today)",
+      "date": "February 25, 2026",
       "location": "Montreal, IVADO",
       "url": "https://ivado.ca/en/events/ivado-ai-internship-and-job-fair-february-2026/",
       "priority": "medium",
@@ -168,4 +168,41 @@
       "name": "Concordia Applied AI Institute",
       "title": "New Co-Directors Appointed",
       "affiliation": "Concordia University",
-      "research_area": "Applied AI, Creative AI
+      "research_area": "Applied AI, Creative AI",
+      "url": "https://www.concordia.ca/research/applied-ai-institute.html",
+      "priority": "medium",
+      "relevance": "Industry partnerships opening. 200+ grad students.",
+      "action": "Reach out for partnership discussion"
+    },
+    {
+      "name": "Golnoosh Farnadi",
+      "title": "Assistant Professor, McGill/Mila",
+      "affiliation": "McGill, Mila, CIFAR AI Chair",
+      "research_area": "Responsible AI, Algorithmic Fairness",
+      "url": "https://gfarnadi.github.io/",
+      "priority": "high",
+      "relevance": "Responsible AI for TonalityIQ/finance. PhD recruiting Winter 2026.",
+      "action": "Email for collaboration on ethical voice AI"
+    },
+    {
+      "name": "Mila Community",
+      "title": "140+ Professors, 1,400+ Researchers",
+      "affiliation": "UdeM, McGill, Concordia, HEC, ETS, Polytechnique",
+      "research_area": "All AI domains",
+      "url": "https://mila.quebec/en",
+      "priority": "high",
+      "relevance": "Canadian AI hub. Partnership access via IVADO.",
+      "action": "Contact IVADO for industry partnership program"
+    },
+    {
+      "name": "IVADO Thematic Semesters",
+      "title": "Research Funding Program",
+      "affiliation": "IVADO",
+      "research_area": "Various AI themes",
+      "url": "https://ivado.ca/en/ivados-thematic-semesters-program/",
+      "priority": "medium",
+      "relevance": "12-14 week residencies, workshops, collaboration funding.",
+      "action": "Monitor upcoming semesters for relevance"
+    }
+  ]
+}
