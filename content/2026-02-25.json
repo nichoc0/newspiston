@@ -1,122 +1,208 @@
 {
   "date": "2026-02-25",
-  "summary": "Agentic AI momentum accelerates: Intapp Celeste launched today for professional services. Gemini 3.1 Pro continues to dominate conversation with 1M context. Security alert: 8 critical n8n CVEs disclosed—upgrade to 2.5.2+ immediately. DeepSeek V4 rumors persist. LangChain alternatives gaining traction: Flowise, Pydantic AI, n8n.",
-  
+  "summary": "Agentic AI accelerates: Intapp Celeste launched for professional services. Critical security alert: 8 n8n CVEs require immediate patching. Gemini 3.1 Pro now available with 1M context. IVADO AI Job Fair today. SAM.gov active with federal AI procurement opportunities.",
+
   "highlights": [
     {
       "category": "Tech",
-      "title": "Intapp Celeste: Agentic AI for Professional Firms",
-      "summary": "Purpose-built agentic AI platform for highly regulated industries. Context Engine knows firm data, terminology, relationships, work patterns.",
+      "title": "Intapp Celeste: Agentic AI for Professional Services",
+      "summary": "Purpose-built agentic platform with Context Engine for regulated industries. NASDAQ: INTA.",
       "url": "https://www.cpapracticeadvisor.com/2026/02/25/intapp-launches-agentic-ai-platform-for-professional-firms/178904/",
       "source": "Intapp",
       "priority": "high",
-      "relevance": "Agentic AI for regulated industries—relevant pattern for Gulf financial services.",
-      "action": "Study Celeste Context Engine approach for TonalityIQ/EventHorizonIQ"
+      "relevance": "Agentic AI pattern for financial/legal—relevant for Gulf positioning.",
+      "action": "Study Context Engine approach for TonalityIQ"
     },
     {
-      "category": "Tech",
+      "category": "Security",
       "title": "CRITICAL: n8n 8 CVEs Disclosed",
-      "summary": "Eight high-to-critical vulnerabilities in n8n workflow automation. Earlier patching guidance invalidated. Upgrade to 2.5.2+ required.",
+      "summary": "High-to-critical RCE vulnerabilities in n8n workflow automation. Upgrade to 2.5.2+ mandatory.",
       "url": "https://www.geordie.ai/resources/technical-advisory-eight-new-n8n-cves-since-january---updated-remediation-guidance",
       "source": "Geordie AI Security",
       "priority": "critical",
-      "relevance": "If using n8n in any pipeline—audit immediately. RCE vulnerabilities present.",
-      "action": "Check all n8n instances; upgrade to 2.5.2+ if deployed"
+      "relevance": "RCE vulnerabilities—audit any n8n usage immediately.",
+      "action": "Upgrade all n8n instances to 2.5.2+ now"
     },
     {
       "category": "Tech",
-      "title": "Gemini 3.1 Pro: 1M Context Live",
-      "summary": "Google's Pro-tier model now available. 77.1% ARC-AGI-2, full multimodal. Direct competitor to GPT-5.2/Claude Opus 4.6.",
+      "title": "Gemini 3.1 Pro Available",
+      "summary": "1M token context, 77.1% ARC-AGI-2, multimodal native. Direct GPT-5.2/Claude competitor.",
       "url": "https://deepmind.google/gemini",
       "source": "Google DeepMind",
       "priority": "high",
-      "relevance": "Benchmark against current baselines. 1M context enables new use cases.",
-      "action": "Test Gemini 3.1 Pro latency/cost vs Claude Opus 4.6 for coding tasks"
+      "relevance": "New baseline for long-context. Benchmark vs Opus 4.6.",
+      "action": "Test latency/cost for client workloads"
     },
     {
-      "category": "Tech",
-      "title": "DeepSeek V4: Leaked Benchmarks",
-      "summary": "Rumored 90% HumanEval, 1M context. Expected mid-February. Price undercut threat to OpenAI/Anthropic.",
-      "url": "https://www.humai.blog/deepseek-v4",
-      "source": "Industry analysis",
+      "category": "Events",
+      "title": "IVADO AI Job Fair TODAY",
+      "summary": "Montreal AI talent pipeline event. Mila/IVADO students seeking internships.",
+      "url": "https://ivado.ca/en/events/ivado-ai-internship-and-job-fair-february-2026/",
+      "source": "IVADO",
       "priority": "medium",
-      "relevance": "Pricing pressure on frontier models. Gulf clients may prefer non-US options.",
-      "action": "Monitor for official announcement; prepare cost comparison matrix"
+      "relevance": "Talent acquisition opportunity—post openings for next year.",
+      "action": "Attend if possible; network for future hires"
     }
   ],
-  
+
   "tech_research": [
     {
-      "title": "Intapp Celeste Launch",
-      "summary": "Agentic AI platform with Context Engine for professional services. NASDAQ: INTA.",
-      "url": "https://www.cpapracticeadvisor.com/2026/02/25/intapp-launches-agentic-ai-platform-for-professional-firms/178904/",
-      "source": "Intapp",
-      "priority": "high",
-      "relevance": "Regulated industry AI pattern—relevant for financial services positioning."
-    },
-    {
-      "title": "SECURITY: n8n 8 CVEs (Feb 2026)",
-      "summary": "Critical workflow automation vulnerabilities. Upgrade to 2.5.2+ mandatory.",
-      "url": "https://www.geordie.ai/resources/technical-advisory-eight-new-n8n-cves-since-january---updated-remediation-guidance",
-      "source": "Security Advisory",
-      "priority": "critical",
-      "relevance": "Audit any n8n usage in pipelines immediately."
-    },
-    {
-      "title": "Gemini 3.1 Pro Available",
-      "summary": "1M token context, 77.1% ARC-AGI-2, multimodal native.",
-      "url": "https://deepmind.google/gemini",
-      "source": "Google",
-      "priority": "high",
-      "relevance": "New baseline for long-context tasks. Evaluate vs Claude 4.6."
-    },
-    {
-      "title": "DeepSeek V4 Rumors",
-      "summary": "90% HumanEval alleged. 1M context. Chinese model pricing threat.",
+      "title": "DeepSeek V4 Rumors Persist",
+      "summary": "90% HumanEval alleged, 1M context. Pricing threat to OpenAI/Anthropic if real.",
       "url": "https://www.humai.blog/deepseek-v4",
-      "source": "Industry rumors",
-      "priority": "medium",
-      "relevance": "Potential pricing disruption. Gulf market non-US preference."
+      "source": "Industry leaks",
+      "priority": "high",
+      "relevance": "Non-US model aligns with Gulf client preferences"
     },
     {
       "title": "LangChain Alternatives Trending",
-      "summary": "Flowise (low-code), Pydantic AI (type-safe), n8n (workflows) gaining traction vs LangChain complexity.",
+      "summary": "Flowise (low-code), Pydantic AI (type-safe), n8n gaining traction vs LangChain complexity.",
       "url": "https://www.lindy.ai/blog/langchain-alternatives",
       "source": "Industry analysis",
       "priority": "medium",
-      "relevance": "Evaluate alternatives for EventHorizonIQ agent orchestration."
+      "relevance": "Simpler orchestration for EventHorizonIQ agents"
+    },
+    {
+      "title": "Ollama Adds Kimi-K2.5, GLM-5",
+      "summary": "Local inference now supports Chinese models + DeepSeek for red-teaming.",
+      "url": "https://github.com/ollama/ollama",
+      "source": "GitHub",
+      "priority": "medium",
+      "relevance": "Bastion local testing capabilities"
+    },
+    {
+      "title": "Agentic AI Governance Frameworks",
+      "summary": "Singapore, UC Berkeley releasing oversight standards for autonomous AI.",
+      "url": "https://hackernoon.com/agentic-ai-governance-frameworks-2026-risks-oversight-and-emerging-standards",
+      "source": "HackerNoon",
+      "priority": "medium",
+      "relevance": "Regulatory prep for Gulf deployments"
     }
   ],
-  
+
   "events": [
     {
-      "title": "No new conferences today",
-      "date": "N/A",
-      "location": "N/A",
-      "priority": "low",
-      "relevance": "Check weekly for upcoming deadlines"
+      "title": "ODSC AI East 2026",
+      "date": "April 28-29, 2026",
+      "location": "Boston, MA (Hynes Convention Center)",
+      "url": "https://odsc.ai/east/",
+      "priority": "high",
+      "relevance": "Quant ML track, hedge fund recruiting. Nicholas should attend.",
+      "decision_deadline": "March 1, 2026 (for early hotel rates)",
+      "action": "Register if attending; book travel"
+    },
+    {
+      "title": "IVADO AI Job Fair 2026",
+      "date": "February 25, 2026 (TODAY)",
+      "location": "Montreal, IVADO",
+      "url": "https://ivado.ca/en/events/ivado-ai-internship-and-job-fair-february-2026/",
+      "priority": "high",
+      "relevance": "Talent pipeline—Mila/IVADO students seeking internships TODAY.",
+      "action": "Attend today if possible"
+    },
+    {
+      "title": "Mila Summer School: Responsible AI",
+      "date": "March 16-23, 2026",
+      "location": "Montreal, Mila",
+      "url": "https://mila.quebec/en/continuing-education/summer-school-in-responsible-ai-and-human-rights",
+      "priority": "medium",
+      "relevance": "Responsible AI training—relevant for TonalityIQ ethics.",
+      "action": "Check if sponsorship opportunities exist"
+    },
+    {
+      "title": "ICML 2026 Paper Deadlines",
+      "date": "Check ICML site for exact date",
+      "location": "Seoul, South Korea",
+      "url": "https://icml.cc/Conferences/2026/CallForPapers",
+      "priority": "high",
+      "relevance": "Top-tier ML conference. Workshop proposals possible.",
+      "action": "Monitor deadline; consider submissions"
     }
   ],
-  
+
   "business_opportunities": [
     {
-      "title": "No new procurement alerts",
-      "organization": "N/A",
-      "value": "N/A",
-      "deadline": "N/A",
-      "priority": "low",
-      "relevance": "Continue monitoring SEAO, SAM.gov, UAE portals daily"
+      "title": "SAM.gov: AI Contact Center Solutions",
+      "organization": "US Federal Government",
+      "value": "TBD",
+      "deadline": "Active",
+      "url": "https://sam.gov/workspace/contract/opp/d816d8fa5a9f4c7f83c7558e787cf85b/view",
+      "priority": "medium",
+      "relevance": "Federal AI procurement—voice AI relevant. SAM registration required.",
+      "action": "Review requirements; assess fit"
+    },
+    {
+      "title": "SAM.gov: Treasury AI Tools",
+      "organization": "US Department of Treasury",
+      "value": "TBD",
+      "deadline": "Active",
+      "url": "https://sam.gov/opp/5ece706a19634ef583f7995dd054c3c5/view",
+      "priority": "medium",
+      "relevance": "Financial AI tools—directly relevant to our quant expertise.",
+      "action": "Download RFP docs; evaluate"
+    },
+    {
+      "title": "Canada AI Source List (PSPC)",
+      "organization": "Public Services Procurement Canada",
+      "value": "Standing Offer",
+      "deadline": "Ongoing",
+      "url": "https://www.canada.ca/en/public-services-procurement/services/acquisitions/better-buying/simplifying-procurement-process/artificial-intelligence-source-list.html",
+      "priority": "high",
+      "relevance": "Pre-qualified vendor list for federal AI contracts. Must be on list to bid.",
+      "action": "Apply to AI source list immediately"
+    },
+    {
+      "title": "Quebec SEAO: Open Data Portal",
+      "organization": "Government of Quebec",
+      "value": "Various",
+      "deadline": "Ongoing",
+      "url": "https://www.seao.ca",
+      "priority": "medium",
+      "relevance": "Provincial procurement— register for alerts.",
+      "action": "Create SEAO account; set AI keyword alerts"
     }
   ],
-  
+
   "research_montreal": [
     {
-      "title": "No new lab announcements today",
-      "professor": "N/A",
-      "university": "N/A",
-      "research_area": "N/A",
-      "priority": "low",
-      "relevance": "Monitor IVADO, Mila newsletters weekly"
+      "name": "Concordia Applied AI Institute",
+      "title": "New Co-Directors Appointed",
+      "affiliation": "Concordia University",
+      "research_area": "Applied AI, Creative AI",
+      "url": "https://www.concordia.ca/research/applied-ai-institute.html",
+      "priority": "medium",
+      "relevance": "Industry partnerships opening. 200+ grad students.",
+      "action": "Reach out for partnership discussion"
+    },
+    {
+      "name": "Golnoosh Farnadi",
+      "title": "Assistant Professor, McGill/Mila",
+      "affiliation": "McGill, Mila, CIFAR AI Chair",
+      "research_area": "Responsible AI, Algorithmic Fairness",
+      "url": "https://gfarnadi.github.io/",
+      "priority": "high",
+      "relevance": "Responsible AI for TonalityIQ/finance. PhD recruiting Winter 2026.",
+      "action": "Email for collaboration on ethical voice AI"
+    },
+    {
+      "name": "Mila Community",
+      "title": "140+ Professors, 1,400+ Researchers",
+      "affiliation": "UdeM, McGill, Concordia, HEC, ETS, Polytechnique",
+      "research_area": "All AI domains",
+      "url": "https://mila.quebec/en",
+      "priority": "high",
+      "relevance": "Canadian AI hub. Partnership access via IVADO.",
+      "action": "Contact IVADO for industry partnership program"
+    },
+    {
+      "name": "IVADO Thematic Semesters",
+      "title": "Research Funding Program",
+      "affiliation": "IVADO",
+      "research_area": "Various AI themes",
+      "url": "https://ivado.ca/en/ivados-thematic-semesters-program/",
+      "priority": "medium",
+      "relevance": "12-14 week residencies, workshops, collaboration funding.",
+      "action": "Monitor upcoming semesters for relevance"
     }
   ]
 }

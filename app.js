@@ -97,18 +97,11 @@ async function loadDigest(date) {
     }
 }
 
-// Load today's digest (Montreal timezone: America/Toronto)
+// Load today's digest (browser local timezone)
 async function loadTodayDigest() {
     const now = new Date();
-    const montrealDate = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'America/Toronto',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    }).format(now);
-    const today = montrealDate; // Format: YYYY-MM-DD
+    const today = now.toISOString().split('T')[0]; // YYYY-MM-DD in local timezone
     console.log('Loading digest for date:', today);
-    console.log('Local browser date:', new Date().toISOString().split('T')[0]);
     await loadDigest(today);
 }
 
