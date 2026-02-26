@@ -1,64 +1,90 @@
 {
   "date": "2026-02-25",
-  "summary": "Major model news: Gemini 3.1 Pro announced with 1M token context and 77.1% ARC-AGI-2 score. DeepSeek V4 rumors surface — leaked benchmarks show 90% HumanEval, could disrupt coding market. Claude Opus 4.6 and GPT-5.2 remain baseline. GitHub trending: awesome-llm-apps collection gaining traction for RAG patterns. No critical procurement alerts. Montreal research pipeline quiet today.",
+  "summary": "Agentic AI momentum accelerates: Intapp Celeste launched today for professional services. Gemini 3.1 Pro continues to dominate conversation with 1M context. Security alert: 8 critical n8n CVEs disclosed—upgrade to 2.5.2+ immediately. DeepSeek V4 rumors persist. LangChain alternatives gaining traction: Flowise, Pydantic AI, n8n.",
   
   "highlights": [
     {
       "category": "Tech",
-      "title": "Gemini 3.1 Pro Announced",
-      "summary": "Google's new Pro-tier model: 1M token context window, 77.1% on ARC-AGI-2, full multimodal (text/image/audio/video/code).",
-      "url": "https://deepmind.google/gemini",
-      "source": "Google DeepMind",
-      "priority": "critical",
-      "relevance": "Evaluate against GPT-5.2 for client work. 1M context opens new use cases.",
-      "action": "Benchmark Gemini 3.1 Pro on coding tasks vs Claude Opus 4.6"
+      "title": "Intapp Celeste: Agentic AI for Professional Firms",
+      "summary": "Purpose-built agentic AI platform for highly regulated industries. Context Engine knows firm data, terminology, relationships, work patterns.",
+      "url": "https://www.cpapracticeadvisor.com/2026/02/25/intapp-launches-agentic-ai-platform-for-professional-firms/178904/",
+      "source": "Intapp",
+      "priority": "high",
+      "relevance": "Agentic AI for regulated industries—relevant pattern for Gulf financial services.",
+      "action": "Study Celeste Context Engine approach for TonalityIQ/EventHorizonIQ"
     },
     {
       "category": "Tech",
-      "title": "DeepSeek V4 Leaked Benchmarks",
-      "summary": "Rumored 90% HumanEval, 1M token context. Expected mid-February. Could undercut OpenAI/Anthropic on price.",
-      "url": "https://www.humai.blog/deepseek-v4",
-      "source": "Industry rumors",
-      "priority": "high",
-      "relevance": "If real, major pricing pressure on frontier models. Watch for official drop.",
-      "action": "Monitor for official announcement; prepare cost comparison"
+      "title": "CRITICAL: n8n 8 CVEs Disclosed",
+      "summary": "Eight high-to-critical vulnerabilities in n8n workflow automation. Earlier patching guidance invalidated. Upgrade to 2.5.2+ required.",
+      "url": "https://www.geordie.ai/resources/technical-advisory-eight-new-n8n-cves-since-january---updated-remediation-guidance",
+      "source": "Geordie AI Security",
+      "priority": "critical",
+      "relevance": "If using n8n in any pipeline—audit immediately. RCE vulnerabilities present.",
+      "action": "Check all n8n instances; upgrade to 2.5.2+ if deployed"
     },
     {
-      "category": "Research",
-      "title": "awesome-llm-apps Trending",
-      "summary": "Collection of LLM apps with AI Agents and RAG patterns. Headroom Context Optimization claims 50-90% API cost reduction.",
-      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
-      "source": "GitHub",
+      "category": "Tech",
+      "title": "Gemini 3.1 Pro: 1M Context Live",
+      "summary": "Google's Pro-tier model now available. 77.1% ARC-AGI-2, full multimodal. Direct competitor to GPT-5.2/Claude Opus 4.6.",
+      "url": "https://deepmind.google/gemini",
+      "source": "Google DeepMind",
+      "priority": "high",
+      "relevance": "Benchmark against current baselines. 1M context enables new use cases.",
+      "action": "Test Gemini 3.1 Pro latency/cost vs Claude Opus 4.6 for coding tasks"
+    },
+    {
+      "category": "Tech",
+      "title": "DeepSeek V4: Leaked Benchmarks",
+      "summary": "Rumored 90% HumanEval, 1M context. Expected mid-February. Price undercut threat to OpenAI/Anthropic.",
+      "url": "https://www.humai.blog/deepseek-v4",
+      "source": "Industry analysis",
       "priority": "medium",
-      "relevance": "RAG patterns applicable to EventHorizonIQ knowledge base. Cost optimization relevant for all projects.",
-      "action": "Review context compression techniques for our LLM pipelines"
+      "relevance": "Pricing pressure on frontier models. Gulf clients may prefer non-US options.",
+      "action": "Monitor for official announcement; prepare cost comparison matrix"
     }
   ],
   
   "tech_research": [
     {
-      "title": "Gemini 3.1 Pro Launch",
-      "summary": "Google's answer to GPT-5 speed + Claude reasoning. 1M context, multimodal native.",
+      "title": "Intapp Celeste Launch",
+      "summary": "Agentic AI platform with Context Engine for professional services. NASDAQ: INTA.",
+      "url": "https://www.cpapracticeadvisor.com/2026/02/25/intapp-launches-agentic-ai-platform-for-professional-firms/178904/",
+      "source": "Intapp",
+      "priority": "high",
+      "relevance": "Regulated industry AI pattern—relevant for financial services positioning."
+    },
+    {
+      "title": "SECURITY: n8n 8 CVEs (Feb 2026)",
+      "summary": "Critical workflow automation vulnerabilities. Upgrade to 2.5.2+ mandatory.",
+      "url": "https://www.geordie.ai/resources/technical-advisory-eight-new-n8n-cves-since-january---updated-remediation-guidance",
+      "source": "Security Advisory",
+      "priority": "critical",
+      "relevance": "Audit any n8n usage in pipelines immediately."
+    },
+    {
+      "title": "Gemini 3.1 Pro Available",
+      "summary": "1M token context, 77.1% ARC-AGI-2, multimodal native.",
       "url": "https://deepmind.google/gemini",
       "source": "Google",
-      "priority": "critical",
-      "relevance": "Direct competitor to our baseline models. Must evaluate."
-    },
-    {
-      "title": "DeepSeek V4 Threat",
-      "summary": "Chinese model rumored to outperform on coding with 90% HumanEval. 1M context.",
-      "url": "https://www.humai.blog/deepseek-v4",
-      "source": "Industry analysis",
       "priority": "high",
-      "relevance": "Pricing disruption potential. Gulf clients may prefer non-US options."
+      "relevance": "New baseline for long-context tasks. Evaluate vs Claude 4.6."
     },
     {
-      "title": "ollama adds Kimi-K2.5, GLM-5",
-      "summary": "Local inference now supports Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma.",
-      "url": "https://github.com/ollama/ollama",
-      "source": "GitHub",
+      "title": "DeepSeek V4 Rumors",
+      "summary": "90% HumanEval alleged. 1M context. Chinese model pricing threat.",
+      "url": "https://www.humai.blog/deepseek-v4",
+      "source": "Industry rumors",
       "priority": "medium",
-      "relevance": "Local inference options for bastion red-teaming pipeline."
+      "relevance": "Potential pricing disruption. Gulf market non-US preference."
+    },
+    {
+      "title": "LangChain Alternatives Trending",
+      "summary": "Flowise (low-code), Pydantic AI (type-safe), n8n (workflows) gaining traction vs LangChain complexity.",
+      "url": "https://www.lindy.ai/blog/langchain-alternatives",
+      "source": "Industry analysis",
+      "priority": "medium",
+      "relevance": "Evaluate alternatives for EventHorizonIQ agent orchestration."
     }
   ],
   
@@ -68,7 +94,7 @@
       "date": "N/A",
       "location": "N/A",
       "priority": "low",
-      "relevance": "Check weekly for updates"
+      "relevance": "Check weekly for upcoming deadlines"
     }
   ],
   
@@ -79,18 +105,18 @@
       "value": "N/A",
       "deadline": "N/A",
       "priority": "low",
-      "relevance": "Continue monitoring SEAO, SAM.gov, UAE portals"
+      "relevance": "Continue monitoring SEAO, SAM.gov, UAE portals daily"
     }
   ],
   
   "research_montreal": [
     {
-      "title": "Quiet day — no new lab announcements",
+      "title": "No new lab announcements today",
       "professor": "N/A",
       "university": "N/A",
       "research_area": "N/A",
       "priority": "low",
-      "relevance": "Check IVADO, Mila newsletters weekly"
+      "relevance": "Monitor IVADO, Mila newsletters weekly"
     }
   ]
 }
