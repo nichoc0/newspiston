@@ -107,6 +107,8 @@ async function loadTodayDigest() {
         day: '2-digit'
     }).format(now);
     const today = montrealDate; // Format: YYYY-MM-DD
+    console.log('Loading digest for date:', today);
+    console.log('Local browser date:', new Date().toISOString().split('T')[0]);
     await loadDigest(today);
 }
 
