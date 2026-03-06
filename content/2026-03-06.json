@@ -59,9 +59,60 @@
     }
   ],
 
-  "events": [],
+  "events": [
+    {
+      "title": "AI Week | Montréal International",
+      "summary": "AI Week brings together thousands of top executives and thought leaders from government, technology, and education for an immersive experience.",
+      "url": "https://www.montrealinternational.com/en/events/ai-week-2026/",
+      "source": "Montreal International",
+      "priority": "high",
+      "relevance": "Key networking and collaboration opportunity for Montreal AI ecosystem."
+    },
+    {
+      "title": "ALL IN 2026 | Explore Canada's AI ✨",
+      "summary": "Join the largest AI event in Canada. Tickets are on sale now!",
+      "url": "https://allinevent.ai/",
+      "source": "ALL IN Event",
+      "priority": "high",
+      "relevance": "Major AI event in Canada with potential for partnerships."
+    }
+  ],
 
-  "business_opportunities": [],
+  "business_opportunities": [
+    {
+      "title": "AI Procurement in 2026: How Federal Agencies Will Use Automation to Evaluate and Monitor Contracts",
+      "summary": "AI procurement in 2026 will transform federal contracting through automated evaluations, risk monitoring, and data-driven oversight.",
+      "url": "https://iquasar.com/blog/ai-procurement-in-2026-how-federal-agencies-will-use-automation-to-evaluate-and-monitor-contracts/",
+      "source": "iQuasar LLC",
+      "priority": "high",
+      "relevance": "Strategic insight into federal AI procurement trends."
+    },
+    {
+      "title": "EQU-17078 -Canada (Victoria, British Columbia) - Drones, Geospatial Payloads, and Supporting System",
+      "summary": "Deadline March 2, 2026 for a procurement opportunity in Canada involving drones and geospatial payloads.",
+      "url": "https://www.rfpmart.com/artificial-intelligence-and-machine-learning-rfp-government-contract.html",
+      "source": "RFPMart",
+      "priority": "medium",
+      "relevance": "Procurement opportunity for AI-powered drone systems."
+    }
+  ],
 
-  "research_montreal": []
+  "research_montreal": [
+    {
+      "title": "Mila - Quebec Artificial Intelligence Institute",
+      "summary": "Applications are now open for the 2026 cohort of the Indigenous Pathfinders in AI program. Deadline: February 13.",
+      "url": "https://mila.quebec/en",
+      "source": "Mila",
+      "priority": "high",
+      "relevance": "Opportunity to engage with diverse AI talent at Mila."
+    },
+    {
+      "title": "About Mila | Mila",
+      "summary": "Mila is a collaboration between Université de Montréal, McGill University, and other institutions, advancing AI for the benefit of all.",
+      "url": "https://mila.quebec/en/about/about-mila",
+      "source": "Mila",
+      "priority": "medium",
+      "relevance": "Overview of Mila's collaborative research ecosystem."
+    }
+  ]
 }
