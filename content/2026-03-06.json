@@ -1,0 +1,67 @@
+{
+  "date": "2026-03-06",
+  "summary": "OpenAI launches GPT-5.4 as its most capable frontier model with native computer-use, 1M token context, and GPT-5.4 Thinking/Pro variants. GitHub Copilot integrates GPT-5.4 immediately. Pentagon-Anthropic dispute escalates.",
+
+  "highlights": [
+    {
+      "category": "Launch",
+      "title": "OpenAI Launches GPT-5.4 — Frontier Model With Computer-Use",
+      "summary": "GPT-5.4 released March 5 as OpenAI's most capable model. Native computer-use (75% OSWorld vs 47.3% GPT-5.2), 1M token API context, 33% fewer factual errors. Available as GPT-5.4 Thinking and GPT-5.4 Pro.",
+      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/",
+      "source": "TechCrunch",
+      "priority": "critical",
+      "relevance": "Competitive baseline update — GPT-5.4 replaces GPT-5.2 as OpenAI frontier. Native computer-use and agentic workflows directly compete with our voice AI agent capabilities."
+    },
+    {
+      "category": "Launch",
+      "title": "GPT-5.4 Available in GitHub Copilot",
+      "summary": "GPT-5.4 rolling out across VS Code, JetBrains, Xcode, and Eclipse for Copilot Pro, Business, and Enterprise users. Enhanced agentic coding and multi-step task execution.",
+      "url": "https://github.blog/changelog/2026-03-05-gpt-5-4-is-generally-available-in-github-copilot/",
+      "source": "GitHub Blog",
+      "priority": "high",
+      "relevance": "Developer tooling shift — GPT-5.4 in Copilot raises the bar for AI-assisted coding. Compare against Claude Code for our workflow."
+    },
+    {
+      "category": "Security",
+      "title": "Pentagon-Anthropic Dispute Escalates Over AI Access",
+      "summary": "Ongoing standoff between Pentagon and Anthropic over unrestricted military AI use. OpenAI positioned as alternative for classified network deployment after Anthropic refused to drop safety guardrails.",
+      "url": "https://theaiinsider.tech/2026/03/06/openai-launches-gpt-5-4-with-expanded-context-window-improved-reasoning-and-higher-benchmark-performance/",
+      "source": "The AI Insider",
+      "priority": "high",
+      "relevance": "Strategic context — Anthropic's principled stance costs government contracts while OpenAI captures defense market. Affects AI industry positioning and procurement dynamics."
+    }
+  ],
+
+  "tech_research": [
+    {
+      "title": "GPT-5.4 Benchmark Results — Record Scores Across Professional Tasks",
+      "summary": "83% on GDPval knowledge work test across 44 occupations. 57.7% on SWE-Bench Pro for coding. 75% on OSWorld-Verified for computer-use (surpasses human benchmark of 72.4%). 67.3% on WebArena-Verified for browser tasks.",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-5/",
+      "priority": "high",
+      "relevance": "Benchmark reference for comparing against Claude Opus 4.6 and Gemini 3.1 Pro in our stack evaluations."
+    },
+    {
+      "title": "GPT-5.4 Token Efficiency and Reduced Hallucinations",
+      "summary": "Individual claims 33% less likely to be false vs GPT-5.2. Full responses 18% less error-prone. Significantly fewer tokens to solve same problems. New Tool Search system for API tool calling.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/",
+      "priority": "medium",
+      "relevance": "Reduced hallucination rates relevant to Bastion adversarial testing — may need updated attack vectors for more robust models."
+    },
+    {
+      "title": "OpenAI ChatGPT Loses 1.5M Users After DoD Decision",
+      "summary": "OpenAI reportedly lost approximately 1.5 million users following its announcement to offer services to the Department of Defense. Internal employees openly opposed the decision.",
+      "source": "Gizmodo",
+      "url": "https://gizmodo.com/openai-in-desperate-need-of-a-win-launches-gpt-5-4-2000730268",
+      "priority": "medium",
+      "relevance": "Market dynamics — user backlash to military AI partnerships affects enterprise sales positioning. Opportunity for Anthropic-aligned consultancies."
+    }
+  ],
+
+  "events": [],
+
+  "business_opportunities": [],
+
+  "research_montreal": []
+}
