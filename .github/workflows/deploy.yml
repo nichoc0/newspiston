@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -25,7 +25,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /opt/newspiston
-            sudo docker compose down
-            sudo docker compose build --no-cache
-            sudo docker compose up -d
+            cd /opt/copyfi
+            sudo docker compose up -d --build newspiston
