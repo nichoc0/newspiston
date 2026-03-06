@@ -1,6 +1,6 @@
 {
   "date": "2026-03-06",
-  "summary": "OpenAI launches GPT-5.4 as its most capable frontier model with native computer-use, 1M token context, and GPT-5.4 Thinking/Pro variants. GitHub Copilot integrates GPT-5.4 immediately. Pentagon-Anthropic dispute escalates.",
+  "summary": "OpenAI launches GPT-5.4 as its most capable frontier model with native computer-use, 1M token context, and GPT-5.4 Thinking/Pro variants. GitHub Copilot integrates GPT-5.4 immediately. Pentagon-Anthropic dispute escalates. Speechmatics achieves bilingual Arabic-English voice AI.",
 
   "highlights": [
     {
@@ -28,7 +28,7 @@
       "url": "https://theaiinsider.tech/2026/03/06/openai-launches-gpt-5-4-with-expanded-context-window-improved-reasoning-and-higher-benchmark-performance/",
       "source": "The AI Insider",
       "priority": "high",
-      "relevance": "Strategic context — Anthropic's principled stance costs government contracts while OpenAI captures defense market. Affects AI industry positioning and procurement dynamics."
+      "relevance": "Strategic context — Anthropic's principled stance costs government contracts while OpenAI captures defense market."
     }
   ],
 
@@ -59,98 +59,82 @@
     },
     {
       "title": "Speechmatics Achieves Bilingual Arabic-English Voice AI",
-      "summary": "Speechmatics launches first commercial-grade bilingual Arabic-English speech-to-text model, addressing dialect mixing in Middle Eastern markets.",
-      "url": "https://www.speechmatics.com/company/articles-and-news/arabic-english-bilingual-speech-to-text",
+      "summary": "Speechmatics launches first commercial-grade bilingual Arabic-English speech-to-text model with 35% fewer errors than nearest competitor. Addresses dialect mixing in Middle Eastern markets.",
       "source": "Speechmatics",
+      "url": "https://www.speechmatics.com/company/articles-and-news/arabic-english-bilingual-speech-to-text",
       "priority": "high",
-      "relevance": "Advances in multilingual voice AI directly compete with Sera's Gulf market focus."
+      "relevance": "Directly competes with Sera's Gulf market voice AI focus. Bilingual Arabic-English capability is exactly what Gulf clients need."
+    },
+    {
+      "title": "Lio Raises $30M for AI-Powered Procurement Agents",
+      "summary": "AI procurement startup Lio announced a $30 million Series A led by Andreessen Horowitz. Automates enterprise procurement workflows, achieving 75% task automation within six months.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "priority": "high",
+      "relevance": "AI procurement automation trend — validates enterprise demand for AI agents in business workflows."
+    },
+    {
+      "title": "DiligenceSquared Uses Voice AI Agents for M&A Research",
+      "summary": "Startup uses AI voice agents to conduct customer interviews for private equity due diligence, replacing expensive management consultants.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/05/diligencesquared-uses-ai-voice-agents-to-make-ma-research-affordable/",
+      "priority": "high",
+      "relevance": "Validates commercial demand for voice agent workflows in enterprise. Direct parallel to Sera's capabilities."
     }
   ],
 
   "events": [
     {
-      "title": "AI Week | Montréal International",
-      "summary": "AI Week brings together thousands of top executives and thought leaders from government, technology, and education for an immersive experience.",
-      "url": "https://www.montrealinternational.com/en/events/ai-week-2026/",
-      "source": "Montreal International",
+      "title": "ALL IN 2026 — Canada's Largest AI Conference",
+      "summary": "Canada's premier AI event bringing together researchers, startups, and enterprise leaders.",
+      "source": "ALL IN Event",
+      "url": "https://www.allinevent.ai/",
+      "date": "2026-09-01",
       "priority": "high",
-      "relevance": "Key networking and collaboration opportunity for Montreal AI ecosystem."
+      "relevance": "Major Canadian AI networking event. Speaking and lead gen opportunity."
     },
     {
-      "title": "ALL IN 2026 | Explore Canada's AI ✨",
-      "summary": "Join the largest AI event in Canada. Tickets are on sale now!",
-      "url": "https://allinevent.ai/",
-      "source": "ALL IN Event",
+      "title": "ODSC AI East 2026 — Boston",
+      "summary": "Open Data Science Conference with 3,500+ data practitioners. Sessions on LLMs, ML, Generative AI.",
+      "source": "ODSC",
+      "url": "https://odsc.com/boston/",
+      "date": "2026-05-13",
+      "cost": "$599 early bird, $899 regular",
+      "location": "Boston Convention Center",
       "priority": "high",
-      "relevance": "Major AI event in Canada with potential for partnerships."
+      "relevance": "East Coast AI conference. Lead gen for enterprise clients."
     }
   ],
 
   "business_opportunities": [
     {
-      "title": "AI Procurement in 2026: How Federal Agencies Will Use Automation to Evaluate and Monitor Contracts",
-      "summary": "AI procurement in 2026 will transform federal contracting through automated evaluations, risk monitoring, and data-driven oversight.",
-      "url": "https://iquasar.com/blog/ai-procurement-in-2026-how-federal-agencies-will-use-automation-to-evaluate-and-monitor-contracts/",
-      "source": "iQuasar LLC",
-      "priority": "high",
-      "relevance": "Strategic insight into federal AI procurement trends."
-    },
-    {
-      "title": "EQU-17078 -Canada (Victoria, British Columbia) - Drones, Geospatial Payloads, and Supporting System",
-      "summary": "Deadline March 2, 2026 for a procurement opportunity in Canada involving drones and geospatial payloads.",
-      "url": "https://www.rfpmart.com/artificial-intelligence-and-machine-learning-rfp-government-contract.html",
-      "source": "RFPMart",
-      "priority": "medium",
-      "relevance": "Procurement opportunity for AI-powered drone systems."
-    },
-    {
-      "title": "Lio Raises $30M for AI-Powered Procurement Agents",
-      "summary": "Lio's AI agents automate enterprise procurement workflows, achieving 75% task automation for clients within six months.",
-      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "title": "Lio Raises $30M — AI Procurement Automation Growing",
+      "summary": "Andreessen Horowitz leads $30M Series A for AI procurement startup. Signals strong enterprise demand for AI agent automation.",
       "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
       "priority": "high",
-      "relevance": "AI procurement automation aligns with Bastion's enterprise security use cases."
+      "relevance": "Growing AI procurement market validates our enterprise agent positioning."
     }
   ],
 
   "research_montreal": [
     {
-      "title": "Mila - Quebec Artificial Intelligence Institute",
-      "summary": "Applications are now open for the 2026 cohort of the Indigenous Pathfinders in AI program. Deadline: February 13.",
-      "url": "https://mila.quebec/en",
-      "source": "Mila",
+      "name": "Mirco Ravanelli",
+      "title": "Assistant Professor, Concordia | Mila",
+      "affiliation": "Concordia University, Mila",
+      "research": "Creator of SpeechBrain, open-source voice AI toolkit. Directly relevant to TonalityIQ voice feature extraction and student pipeline.",
+      "url": "https://speechbrain.github.io/",
       "priority": "high",
-      "relevance": "Opportunity to engage with diverse AI talent at Mila."
+      "relevance": "SpeechBrain collaboration opportunity for voice AI R&D."
     },
     {
-      "title": "About Mila | Mila",
-      "summary": "Mila is a collaboration between Université de Montréal, McGill University, and other institutions, advancing AI for the benefit of all.",
-      "url": "https://mila.quebec/en/about/about-mila",
-      "source": "Mila",
-      "priority": "medium",
-      "relevance": "Overview of Mila's collaborative research ecosystem."
-    }
-  ],
-
-  "voice_ai": [
-    {
-      "title": "DiligenceSquared Uses Voice AI for M&A Research",
-      "summary": "Startup deploys voice agents to conduct customer interviews for private equity firms, replacing traditional consultants.",
-      "url": "https://techcrunch.com/2026/03/05/diligencesquared-uses-ai-voice-agents-to-make-ma-research-affordable/",
-      "source": "TechCrunch",
-      "priority": "medium",
-      "relevance": "Validates commercial demand for voice agent workflows."
-    }
-  ],
-
-  "funding": [
-    {
-      "title": "Anthropic Secures $30B Funding Round",
-      "summary": "Anthropic raises $30B in latest funding round, bringing total funding to $67.3B from 90 investors.",
-      "url": "https://tracxn.com/d/companies/anthropic/__SzoxXDMin-NK5tKB7ks8yHr6S9Mz68pjVCzFEcGFZ08/funding-and-investors",
-      "source": "Tracxn",
+      "name": "Manuel Morales",
+      "title": "Associate Professor, UdeM | Director, Fin-ML (IVADO)",
+      "affiliation": "Universite de Montreal, IVADO",
+      "research": "ML for finance, options pricing, risk models. Industry partnership coordinator at Fin-ML.",
+      "url": "https://ivado.ca/en/events/",
       "priority": "high",
-      "relevance": "Competitive funding landscape update."
+      "relevance": "EventHorizonIQ data pipeline optimizations. IVADO grants for student interns."
     }
   ]
 }
