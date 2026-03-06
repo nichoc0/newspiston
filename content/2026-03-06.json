@@ -56,6 +56,14 @@
       "url": "https://gizmodo.com/openai-in-desperate-need-of-a-win-launches-gpt-5-4-2000730268",
       "priority": "medium",
       "relevance": "Market dynamics — user backlash to military AI partnerships affects enterprise sales positioning. Opportunity for Anthropic-aligned consultancies."
+    },
+    {
+      "title": "Speechmatics Achieves Bilingual Arabic-English Voice AI",
+      "summary": "Speechmatics launches first commercial-grade bilingual Arabic-English speech-to-text model, addressing dialect mixing in Middle Eastern markets.",
+      "url": "https://www.speechmatics.com/company/articles-and-news/arabic-english-bilingual-speech-to-text",
+      "source": "Speechmatics",
+      "priority": "high",
+      "relevance": "Advances in multilingual voice AI directly compete with Sera's Gulf market focus."
     }
   ],
 
@@ -94,6 +102,14 @@
       "source": "RFPMart",
       "priority": "medium",
       "relevance": "Procurement opportunity for AI-powered drone systems."
+    },
+    {
+      "title": "Lio Raises $30M for AI-Powered Procurement Agents",
+      "summary": "Lio's AI agents automate enterprise procurement workflows, achieving 75% task automation for clients within six months.",
+      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "source": "TechCrunch",
+      "priority": "high",
+      "relevance": "AI procurement automation aligns with Bastion's enterprise security use cases."
     }
   ],
 
@@ -113,6 +129,28 @@
       "source": "Mila",
       "priority": "medium",
       "relevance": "Overview of Mila's collaborative research ecosystem."
+    }
+  ],
+
+  "voice_ai": [
+    {
+      "title": "DiligenceSquared Uses Voice AI for M&A Research",
+      "summary": "Startup deploys voice agents to conduct customer interviews for private equity firms, replacing traditional consultants.",
+      "url": "https://techcrunch.com/2026/03/05/diligencesquared-uses-ai-voice-agents-to-make-ma-research-affordable/",
+      "source": "TechCrunch",
+      "priority": "medium",
+      "relevance": "Validates commercial demand for voice agent workflows."
+    }
+  ],
+
+  "funding": [
+    {
+      "title": "Anthropic Secures $30B Funding Round",
+      "summary": "Anthropic raises $30B in latest funding round, bringing total funding to $67.3B from 90 investors.",
+      "url": "https://tracxn.com/d/companies/anthropic/__SzoxXDMin-NK5tKB7ks8yHr6S9Mz68pjVCzFEcGFZ08/funding-and-investors",
+      "source": "Tracxn",
+      "priority": "high",
+      "relevance": "Competitive funding landscape update."
     }
   ]
 }
