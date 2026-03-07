@@ -103,6 +103,51 @@
       "location": "Boston Convention Center",
       "priority": "high",
       "relevance": "East Coast AI conference. Lead gen for enterprise clients."
+    },
+    {
+      "title": "AI Week 2026 | Montréal International",
+      "summary": "Premier week-long event bringing together executives and thought leaders from government, technology, and education.",
+      "source": "Montréal International",
+      "url": "https://www.montrealinternational.com/en/events/ai-week-2026/",
+      "date": "2026-12-03",
+      "priority": "high",
+      "relevance": "Key Montreal AI event for networking and lead generation."
+    },
+    {
+      "title": "E-AI 2026 | Montréal International",
+      "summary": "Hands-on creative lab under the theme ‘Rolling Up Our Sleeves.’",
+      "source": "Montréal International",
+      "url": "https://www.montrealinternational.com/en/events/e-ai-2026/",
+      "date": "2026-02-03",
+      "priority": "high",
+      "relevance": "Interactive AI event for practical applications."
+    },
+    {
+      "title": "DémultiplIA | IVADO",
+      "summary": "Applications for the 2026 cohort are closed.",
+      "source": "IVADO",
+      "url": "https://ivado.ca/en/demultiplia/",
+      "date": "2025-12-04",
+      "priority": "high",
+      "relevance": "Flagship program for Quebec AI startups."
+    },
+    {
+      "title": "DémultiplIA 2026: 14 Quebec companies powered by AI | IVADO",
+      "summary": "IVADO's flagship program supporting SMEs and startups in AI R&D.",
+      "source": "IVADO",
+      "url": "https://ivado.ca/en/2026/01/28/demultiplia-2026-14-quebec-companies-powered-by-ai/",
+      "date": "2026-01-28",
+      "priority": "high",
+      "relevance": "Showcase of Quebec AI innovation."
+    },
+    {
+      "title": "IVADO Opens Applications for DémultiplIA 2026",
+      "summary": "Applications open September 15–October 26, 2025; program begins early 2026.",
+      "source": "IVADO",
+      "url": "https://ivado.ca/en/2025/09/15/ivado-opens-applications-for-demultiplia-2026-turning-rd-into-a-growth-engine-for-ai-smes-and-startups/",
+      "date": "2025-09-15",
+      "priority": "high",
+      "relevance": "Opportunity for AI startups to join the program."
     }
   ],
 
