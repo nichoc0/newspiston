@@ -107,7 +107,10 @@ async function loadDigest(date) {
 // Load today's digest (browser local timezone)
 async function loadTodayDigest() {
     const now = new Date();
-    const today = now.toISOString().split('T')[0]; // YYYY-MM-DD in local timezone
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const today = `${year}-${month}-${day}`;
     console.log('Loading digest for date:', today);
     await loadDigest(today);
 }
@@ -123,8 +126,36 @@ function renderDigest(digest) {
     // Update hero stats
     updateHeroStats();
     
-    // Highlights
-    renderHighlights(digest.highlights || []);
+    // Highlights — auto-generate from top items if none provided
+    let highlights = digest.highlights || [];
+    if (highlights.length === 0) {
+        const sections = [
+            { items: digest.tech_research || [], cat: 'tech' },
+            { items: digest.events || [], cat: 'events' },
+            { items: digest.business_opportunities || [], cat: 'business' },
+            { items: digest.research_montreal || [], cat: 'research' }
+        ];
+        sections.forEach(s => {
+            const top = s.items.filter(i => i.priority === 'critical' || i.priority === 'high').slice(0, 2);
+            top.forEach(i => highlights.push({
+                title: i.title || i.name,
+                summary: i.summary || i.research || '',
+                category: s.cat,
+                url: i.url || (Array.isArray(i.sources) ? i.sources[0] : null)
+            }));
+        });
+        if (highlights.length === 0) {
+            sections.forEach(s => {
+                if (s.items.length > 0) highlights.push({
+                    title: s.items[0].title || s.items[0].name,
+                    summary: s.items[0].summary || s.items[0].research || '',
+                    category: s.cat,
+                    url: s.items[0].url || (Array.isArray(s.items[0].sources) ? s.items[0].sources[0] : null)
+                });
+            });
+        }
+    }
+    renderHighlights(highlights);
     
     // Render 4 main sections
     renderTechSection(digest.tech_research || []);
@@ -213,7 +244,11 @@ function renderTechSection(items) {
         return;
     }
     
-    listEl.innerHTML = items.map((item, index) => `
+    listEl.innerHTML = items.map((item, index) => {
+        const source = item.source || item.category || 'Unknown';
+        const url = item.url || (Array.isArray(item.sources) ? item.sources[0] : null);
+        const extraUrls = Array.isArray(item.sources) ? item.sources.slice(item.url ? 0 : 1) : [];
+        return `
         <div class="item-card" style="animation-delay: ${index * 0.05}s">
             <div class="item-header">
                 <h3 class="item-title">${item.title}</h3>
@@ -227,14 +262,16 @@ function renderTechSection(items) {
                         <line x1="2" y1="12" x2="22" y2="12"/>
                         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
                     </svg>
-                    ${item.source || 'Unknown'}
+                    ${source}
                 </span>
                 ${item.time ? `<span class="item-date">${item.time}</span>` : ''}
                 ${item.relevance ? `<span class="item-tag">→ ${item.relevance}</span>` : ''}
-                ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">View Source</a>` : ''}
+                ${url ? `<a href="${url}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">View Source</a>` : ''}
+                ${extraUrls.map(u => `<a href="${u}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">More</a>`).join('')}
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 // Render Events section
