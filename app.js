@@ -23,23 +23,30 @@ async function init() {
 // Update timestamps
 function updateTimestamps() {
     const now = new Date();
-    const utc = now.toISOString().split('T')[1].split('.')[0];
-    
+    const est = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
     const timestampEl = document.getElementById('timestamp');
     const heroDateEl = document.getElementById('hero-date');
     const footerTimeEl = document.getElementById('footer-time');
-    
-    if (timestampEl) timestampEl.textContent = `${utc} UTC`;
+
+    if (timestampEl) timestampEl.textContent = `${est} EST`;
     if (heroDateEl) heroDateEl.textContent = now.toLocaleDateString('en-US', { 
         weekday: 'long', 
         year: 'numeric', 
         month: 'long', 
         day: 'numeric' 
     });
-    if (footerTimeEl) footerTimeEl.textContent = now.toLocaleTimeString('en-US', { 
-        hour: '2-digit', 
+    if (footerTimeEl) footerTimeEl.textContent = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
         minute: '2-digit',
-        hour12: false 
+        hour12: false
     });
 }
 
