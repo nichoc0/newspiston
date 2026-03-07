@@ -1,185 +1,119 @@
 {
   "date": "2026-03-06",
-  "summary": "OpenAI launches GPT-5.4 as its most capable frontier model with native computer-use, 1M token context, and GPT-5.4 Thinking/Pro variants. GitHub Copilot integrates GPT-5.4 immediately. Pentagon-Anthropic dispute escalates. Speechmatics achieves bilingual Arabic-English voice AI.",
-
-  "highlights": [
-    {
-      "category": "Launch",
-      "title": "OpenAI Launches GPT-5.4 — Frontier Model With Computer-Use",
-      "summary": "GPT-5.4 released March 5 as OpenAI's most capable model. Native computer-use (75% OSWorld vs 47.3% GPT-5.2), 1M token API context, 33% fewer factual errors. Available as GPT-5.4 Thinking and GPT-5.4 Pro.",
-      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/",
-      "source": "TechCrunch",
-      "priority": "critical",
-      "relevance": "Competitive baseline update — GPT-5.4 replaces GPT-5.2 as OpenAI frontier. Native computer-use and agentic workflows directly compete with our voice AI agent capabilities."
-    },
-    {
-      "category": "Launch",
-      "title": "GPT-5.4 Available in GitHub Copilot",
-      "summary": "GPT-5.4 rolling out across VS Code, JetBrains, Xcode, and Eclipse for Copilot Pro, Business, and Enterprise users. Enhanced agentic coding and multi-step task execution.",
-      "url": "https://github.blog/changelog/2026-03-05-gpt-5-4-is-generally-available-in-github-copilot/",
-      "source": "GitHub Blog",
-      "priority": "high",
-      "relevance": "Developer tooling shift — GPT-5.4 in Copilot raises the bar for AI-assisted coding. Compare against Claude Code for our workflow."
-    },
-    {
-      "category": "Security",
-      "title": "Pentagon-Anthropic Dispute Escalates Over AI Access",
-      "summary": "Ongoing standoff between Pentagon and Anthropic over unrestricted military AI use. OpenAI positioned as alternative for classified network deployment after Anthropic refused to drop safety guardrails.",
-      "url": "https://theaiinsider.tech/2026/03/06/openai-launches-gpt-5-4-with-expanded-context-window-improved-reasoning-and-higher-benchmark-performance/",
-      "source": "The AI Insider",
-      "priority": "high",
-      "relevance": "Strategic context — Anthropic's principled stance costs government contracts while OpenAI captures defense market."
-    }
-  ],
-
+  "summary": "Technical intel sweep for today, including new CVEs, HackerNews top stories, Rust news, AI model releases, cybersecurity breaches, arXiv AI papers, and GitHub trending repositories.",
+  
   "tech_research": [
     {
-      "title": "GPT-5.4 Benchmark Results — Record Scores Across Professional Tasks",
-      "summary": "83% on GDPval knowledge work test across 44 occupations. 57.7% on SWE-Bench Pro for coding. 75% on OSWorld-Verified for computer-use (surpasses human benchmark of 72.4%). 67.3% on WebArena-Verified for browser tasks.",
-      "source": "OpenAI",
-      "url": "https://openai.com/index/introducing-gpt-5/",
+      "category": "CVEs",
+      "title": "Recent CVEs published today",
+      "summary": "CVEs detailed on platforms like CVE Details, CISA, and Tenable.",
+      "sources": [
+        "https://www.cvedetails.com/browse-by-date.php",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        "https://www.tenable.com/cve/newest"
+      ],
       "priority": "high",
-      "relevance": "Benchmark reference for comparing against Claude Opus 4.6 and Gemini 3.1 Pro in our stack evaluations."
+      "relevance": "Security updates"
     },
     {
-      "title": "GPT-5.4 Token Efficiency and Reduced Hallucinations",
-      "summary": "Individual claims 33% less likely to be false vs GPT-5.2. Full responses 18% less error-prone. Significantly fewer tokens to solve same problems. New Tool Search system for API tool calling.",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/",
+      "category": "HackerNews",
+      "title": "Top stories on HackerNews",
+      "summary": "Popular stories including Wikipedia read-only mode and government tariff refunds.",
+      "sources": [
+        "https://news.ycombinator.com/best",
+        "https://hntoplinks.com/"
+      ],
       "priority": "medium",
-      "relevance": "Reduced hallucination rates relevant to Bastion adversarial testing — may need updated attack vectors for more robust models."
+      "relevance": "Tech community trends"
     },
     {
-      "title": "OpenAI ChatGPT Loses 1.5M Users After DoD Decision",
-      "summary": "OpenAI reportedly lost approximately 1.5 million users following its announcement to offer services to the Department of Defense. Internal employees openly opposed the decision.",
-      "source": "Gizmodo",
-      "url": "https://gizmodo.com/openai-in-desperate-need-of-a-win-launches-gpt-5-4-2000730268",
+      "category": "Rust",
+      "title": "Rust community updates",
+      "summary": "Latest news from the Rust programming language community.",
+      "sources": [
+        "https://www.reddit.com/r/rust/",
+        "https://rust.facepunch.com/news"
+      ],
       "priority": "medium",
-      "relevance": "Market dynamics — user backlash to military AI partnerships affects enterprise sales positioning. Opportunity for Anthropic-aligned consultancies."
+      "relevance": "Developer ecosystem"
     },
     {
-      "title": "Speechmatics Achieves Bilingual Arabic-English Voice AI",
-      "summary": "Speechmatics launches first commercial-grade bilingual Arabic-English speech-to-text model with 35% fewer errors than nearest competitor. Addresses dialect mixing in Middle Eastern markets.",
-      "source": "Speechmatics",
-      "url": "https://www.speechmatics.com/company/articles-and-news/arabic-english-bilingual-speech-to-text",
-      "priority": "high",
-      "relevance": "Directly competes with Sera's Gulf market voice AI focus. Bilingual Arabic-English capability is exactly what Gulf clients need."
+      "category": "AI Models",
+      "title": "Latest AI model releases",
+      "summary": "Updates on AI models from Anthropic, OpenAI, and other organizations.",
+      "sources": [
+        "https://llm-stats.com/llm-updates",
+        "https://www.cnbc.com/2026/02/17/anthropic-ai-claude-sonnet-4-6-default-free-pro.html"
+      ],
+      "priority": "critical",
+      "relevance": "Competitive intel"
     },
     {
-      "title": "Lio Raises $30M for AI-Powered Procurement Agents",
-      "summary": "AI procurement startup Lio announced a $30 million Series A led by Andreessen Horowitz. Automates enterprise procurement workflows, achieving 75% task automation within six months.",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "category": "Cybersecurity",
+      "title": "Notable cybersecurity breaches",
+      "summary": "Reports on recent breaches and their implications.",
+      "sources": [
+        "https://www.pkware.com/blog/recent-data-breaches",
+        "https://www.csis.org/programs/strategic-technologies-program/significant-cyber-incidents"
+      ],
       "priority": "high",
-      "relevance": "AI procurement automation trend — validates enterprise demand for AI agents in business workflows."
+      "relevance": "Security updates"
     },
     {
-      "title": "DiligenceSquared Uses Voice AI Agents for M&A Research",
-      "summary": "Startup uses AI voice agents to conduct customer interviews for private equity due diligence, replacing expensive management consultants.",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/05/diligencesquared-uses-ai-voice-agents-to-make-ma-research-affordable/",
-      "priority": "high",
-      "relevance": "Validates commercial demand for voice agent workflows in enterprise. Direct parallel to Sera's capabilities."
+      "category": "arXiv",
+      "title": "Latest AI papers on arXiv",
+      "summary": "Recent research papers on AI, machine learning, and related fields.",
+      "sources": [
+        "https://arxiv.org/list/cs.AI/recent",
+        "https://arxiv.org/list/cs.LG/recent"
+      ],
+      "priority": "medium",
+      "relevance": "Research insights"
+    },
+    {
+      "category": "GitHub",
+      "title": "Trending repositories on GitHub",
+      "summary": "Popular open-source projects trending today.",
+      "sources": [
+        "https://github.com/trending",
+        "https://trendshift.io/"
+      ],
+      "priority": "medium",
+      "relevance": "Developer tools"
     }
   ],
-
-  "events": [
-    {
-      "title": "ALL IN 2026 — Canada's Largest AI Conference",
-      "summary": "Canada's premier AI event bringing together researchers, startups, and enterprise leaders.",
-      "source": "ALL IN Event",
-      "url": "https://www.allinevent.ai/",
-      "date": "2026-09-01",
-      "priority": "high",
-      "relevance": "Major Canadian AI networking event. Speaking and lead gen opportunity."
-    },
-    {
-      "title": "ODSC AI East 2026 — Boston",
-      "summary": "Open Data Science Conference with 3,500+ data practitioners. Sessions on LLMs, ML, Generative AI.",
-      "source": "ODSC",
-      "url": "https://odsc.com/boston/",
-      "date": "2026-05-13",
-      "cost": "$599 early bird, $899 regular",
-      "location": "Boston Convention Center",
-      "priority": "high",
-      "relevance": "East Coast AI conference. Lead gen for enterprise clients."
-    },
-    {
-      "title": "AI Week 2026 | Montréal International",
-      "summary": "Premier week-long event bringing together executives and thought leaders from government, technology, and education.",
-      "source": "Montréal International",
-      "url": "https://www.montrealinternational.com/en/events/ai-week-2026/",
-      "date": "2026-12-03",
-      "priority": "high",
-      "relevance": "Key Montreal AI event for networking and lead generation."
-    },
-    {
-      "title": "E-AI 2026 | Montréal International",
-      "summary": "Hands-on creative lab under the theme ‘Rolling Up Our Sleeves.’",
-      "source": "Montréal International",
-      "url": "https://www.montrealinternational.com/en/events/e-ai-2026/",
-      "date": "2026-02-03",
-      "priority": "high",
-      "relevance": "Interactive AI event for practical applications."
-    },
-    {
-      "title": "DémultiplIA | IVADO",
-      "summary": "Applications for the 2026 cohort are closed.",
-      "source": "IVADO",
-      "url": "https://ivado.ca/en/demultiplia/",
-      "date": "2025-12-04",
-      "priority": "high",
-      "relevance": "Flagship program for Quebec AI startups."
-    },
-    {
-      "title": "DémultiplIA 2026: 14 Quebec companies powered by AI | IVADO",
-      "summary": "IVADO's flagship program supporting SMEs and startups in AI R&D.",
-      "source": "IVADO",
-      "url": "https://ivado.ca/en/2026/01/28/demultiplia-2026-14-quebec-companies-powered-by-ai/",
-      "date": "2026-01-28",
-      "priority": "high",
-      "relevance": "Showcase of Quebec AI innovation."
-    },
-    {
-      "title": "IVADO Opens Applications for DémultiplIA 2026",
-      "summary": "Applications open September 15–October 26, 2025; program begins early 2026.",
-      "source": "IVADO",
-      "url": "https://ivado.ca/en/2025/09/15/ivado-opens-applications-for-demultiplia-2026-turning-rd-into-a-growth-engine-for-ai-smes-and-startups/",
-      "date": "2025-09-15",
-      "priority": "high",
-      "relevance": "Opportunity for AI startups to join the program."
-    }
-  ],
-
   "business_opportunities": [
     {
-      "title": "Lio Raises $30M — AI Procurement Automation Growing",
-      "summary": "Andreessen Horowitz leads $30M Series A for AI procurement startup. Signals strong enterprise demand for AI agent automation.",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "title": "Gulf Nations Invest $169B in AI by 2026",
+      "summary": "MENA tech spending forecasted to reach $169B (Gartner).",
+      "source": "Crowell & Moring LLP",
+      "url": "https://www.crowell.com/en/insights/client-alerts/the-middle-easts-big-bet-on-artificial-intelligence-and-data-security",
       "priority": "high",
-      "relevance": "Growing AI procurement market validates our enterprise agent positioning."
-    }
-  ],
-
-  "research_montreal": [
-    {
-      "name": "Mirco Ravanelli",
-      "title": "Assistant Professor, Concordia | Mila",
-      "affiliation": "Concordia University, Mila",
-      "research": "Creator of SpeechBrain, open-source voice AI toolkit. Directly relevant to TonalityIQ voice feature extraction and student pipeline.",
-      "url": "https://speechbrain.github.io/",
-      "priority": "high",
-      "relevance": "SpeechBrain collaboration opportunity for voice AI R&D."
+      "relevance": "Strategic investment trends"
     },
     {
-      "name": "Manuel Morales",
-      "title": "Associate Professor, UdeM | Director, Fin-ML (IVADO)",
-      "affiliation": "Universite de Montreal, IVADO",
-      "research": "ML for finance, options pricing, risk models. Industry partnership coordinator at Fin-ML.",
-      "url": "https://ivado.ca/en/events/",
+      "title": "Microsoft’s $7.9B UAE AI Investment",
+      "summary": "Microsoft plans $7.9B AI spending in UAE (2026-2029).",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/article/idUSKBN2VV09T/",
       "priority": "high",
-      "relevance": "EventHorizonIQ data pipeline optimizations. IVADO grants for student interns."
+      "relevance": "Enterprise AI expansion"
+    },
+    {
+      "title": "Lio Raises $30M for AI Procurement Automation",
+      "summary": "Series A led by Andreessen Horowitz.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/05/lio-ai-series-a-a16z-30m-raise-automate-enterprise-procurement/",
+      "priority": "medium",
+      "relevance": "Startup funding"
+    },
+    {
+      "title": "Ayar Labs Secures $500M Series E",
+      "summary": "NVIDIA/AMD-led round for AI chip startup.",
+      "source": "Tech Startups",
+      "url": "https://techstartups.com/2026/03/03/top-startup-and-tech-funding-news-march-3-2025/",
+      "priority": "medium",
+      "relevance": "Hardware innovation"
     }
   ]
 }
